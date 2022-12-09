@@ -97,15 +97,8 @@ Contrast comes preinstalled with a leightweight alternative to MathJax called [K
 ## License
 ![IMG_9247](https://user-images.githubusercontent.com/97810883/206698025-9f17bc26-cd14-4778-920a-3deffe529460.jpg){: style="float: left"}
 
-<div style="clear: both;">
-  <div style="float: left; margin-right 1em;">
-    <img src="{{ https://user-images.githubusercontent.com/4943215/109431850-cd711780-7a08-11eb-8601-2763f2ee6bb4.png}}" alt="">
-  </div>
-  <div>
-    <h2>{{ include.title }}</h2>
-    {{ include.description | markdownify }}
-  </div>
-</div>
+
+{% include module.html image_path="https://user-images.githubusercontent.com/97810883/206698025-9f17bc26-cd14-4778-920a-3deffe529460.jpg" title="Some title text" description="Some more text that will appear to the left of the image." %}
 
 
 ## Screenshots
