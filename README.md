@@ -97,7 +97,7 @@ Contrast comes preinstalled with a leightweight alternative to MathJax called [K
 ## License
 ![IMG_9247](https://user-images.githubusercontent.com/97810883/206698025-9f17bc26-cd14-4778-920a-3deffe529460.jpg){: style="float: left"}
 
-<img src="https://user-images.githubusercontent.com/16319829/81180309-2b51f000-8fee-11ea-8a78-ddfe8c3412a7.png" width=50% height=50%>.jpg) | resize: '800x800' }})">
+<img src="https://user-images.githubusercontent.com/16319829/81180309-2b51f000-8fee-11ea-8a78-ddfe8c3412a7.png" width=50% height=50%>
         </div>
 
 ## Screenshots
