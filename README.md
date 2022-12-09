@@ -95,7 +95,7 @@ plugins:
 Contrast comes preinstalled with a leightweight alternative to MathJax called [KaTeX](https://katex.org/). To display equations in a post simply set `mathjax: true` in the article's front matter.
 
 ## License
-![IMG_9247](https://user-images.githubusercontent.com/97810883/206698025-9f17bc26-cd14-4778-920a-3deffe529460.jpg){:width=10%"} 
+![IMG_9247](https://user-images.githubusercontent.com/97810883/206698025-9f17bc26-cd14-4778-920a-3deffe529460.jpg){:width="10%"} 
 
 
 
