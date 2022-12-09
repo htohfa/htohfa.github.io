@@ -1,7 +1,7 @@
 {%- assign posts = paginator.posts | default: site.posts -%}
 {% for post in posts %}
   <article>
-    Welcome to my website. My name is Hurum. I am a gradute student in physics with an interest in cosmology. I am currently working with Professor Simeon Bird. I am specifically exploring whether wavelet scatter transform can provide better ways for constraining cosmological parameters. Before that, I worked with Professor Daniel Grin at Haverford College throughout my undergradute career. I analyzed time and spatial variation of the fine structure constant.
+   
     {% include meta.html post=post preview=true %}
     {{ post.excerpt }}
     <div class="more"><a href="{{ post.url | relative_url }}">read more</a></div>
