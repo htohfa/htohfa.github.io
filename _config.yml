@@ -1,5 +1,5 @@
-title: "Blog Title"
-author: "Blog Author"
+title: "Personal Website"
+author: "Hurum Maksora Tohfa"
 description: "Made with <b style=\"color: #f45;\">&lt;3</b>"
 permalink: /:title/
 lang: "en"
@@ -20,9 +20,9 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "README.md"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:niklasbuschmann@users.noreply.github.com"}
-  - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/contrast"}
-  - {title: Subscribe, icon: rss, url: "/feed.xml"}
+  - {title: Mail, icon: envelope, url: "htohf001@ucr.edu"}
+  - {title: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/hurum-maksora-tohfa-96aa02187/"}
+
 
 comments:
 #  disqus_shortname: ""    # see https://disqus.com/
