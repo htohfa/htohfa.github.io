@@ -1,0 +1,21 @@
+---
+title:  "Two-Fluid Approximation for Calculating the CMB Anisotropy"
+mathjax: true
+layout: post
+categories: media
+---
+In the early universe, gravitational force of cold
+dark matter tried to keep the baryon-photon plasma
+contained. But since the universe was also extremely hot
+and ionized there was outward pressure. This created
+sound waves. The CMB photons allow us to see the
+patterns that resulted from the oscillations of the sound
+waves in early universe. The calculation method for power spectra in the
+project was based on the idea that photons and baryons
+were lightly coupled prior to recombination which allowed
+a two fluid description of the perturbation. The analysis
+was restricted to adiabatic perturbation based on Seljak et al 1994. I calculated the evolution of the source terms and approximated CMB anisotrpy for adiabatic process. 
+
+
+[1] Uros Seljak. A two-fluid approximation
+for calculating the cosmic microwave background anisotropies. The Astrophysical Journal, 435:L87, nov 1994.
