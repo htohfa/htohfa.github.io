@@ -1,0 +1,18 @@
+---
+title:  "Computing Lifshitz Field Theory Correlation Functions Using the AdS/CFT Correspondence"
+layout: post
+---
+
+We used the Anti-de Sitter spacetime/Conformal Field Theory (AdS/CFT)
+correspondence to determine quantum field theory correlation functions—
+expectation values of products of fields–—in two field theories, by performing a
+calculation in the dual gravity theory. I.e., we compute the correlation functions
+holographically. The first field theory is the canonical one. We solve the KleinGordon equation in Anti-de Sitter spacetime or asymptotically so which gives us
+two independent solutions with undetermined coefficients. The path integral
+depends on these coefficients, which correspond to a choice of boundary
+condition on the AdS side and a choice of sources on the field theory side. On the
+field theory side, the correlation functions coincide with derivatives of the path
+integral with respect to the sources. We perform the corresponding dual gravity
+calculation. After completing the calculation for the canonical AdS/CFT setting, we
+perform the analogous computation for a novel field theory of interest in
+condensed matter physics, which possesses a Lifshitz multicritical point.
