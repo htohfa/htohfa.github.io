@@ -1,45 +1,237 @@
-title: "About"
-permalink: "/about/"
-layout: page
----
-
-
 <!DOCTYPE html>
 <html lang="en">
 
-  
-<style>
-body {
-  background-image: url("https://user-images.githubusercontent.com/97810883/206727321-c96bcbc8-8d0e-4207-aa0e-f7ef269961d9.JPG");
-  background-repeat: no-repeat;
-}
-</style>
-  
-<body>
-  <div class="wrapper">
-    
-    <div class="left">
-      <img class="profile-picture" src="https://user-images.githubusercontent.com/97810883/206708712-66f84c3f-395c-42a6-80b9-6d98b1667222.jpg" width="200"/>
-      <h1 class="name">Hurum Maksora Tohfa </h1>
-   
-    </div>
-    
-    <div class="right">
-      <p class="bio">
-        My name is Hurum Maksora Tohfa. I am a gradute student in physics with an interest in cosmology. I am currently working with Professor <a href="https://sbird.github.io">Simeon Bird</a>. 
-        We are exploring whether wavelet scatter transform can provide better ways for constraining cosmological parameters. Before that, I worked with 
-        Professor <a href="https://danielgrin.net">Daniel Grin</a> at Haverford College throughout my undergradute career. I analyzed time and spatial variation of 
-        the fine structure constant. I have also previously worked with Professor Michael McDonald at Massachussetts Institute of Technology and at Microsoft research for a summer. You can find descriptions of 
-        all the projects I have worked on in my homepage.
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Personal Website for Hurum Maksora Tohfa">
+  <meta name="author" content="Hurum Maksora Tohfa">
 
-        
-        Since I have been in school most of my life, most of my time is spent doing school work or research. When I have free time, I enjoy solving puzzles (physics related or not) and doing coding challenges. After a long day, I like winding down by reading Sci-fi and/or by drawing. 
-      </p>
-     
+  <title>Hurum Maksora Tohfa</title>
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <style>
+    /* Change the navigation bar background to transparent */
+    #sidebar-wrapper {
+      background-color: transparent;
+    }
+
+    /* Change the title font and size */
+    header.masthead h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 48px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* Set the background color of the body to black */
+    body {
+      background-color: black;
+    }
+
+    /* Style for the text */
+    .masthead-text {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      color: white;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    .image-container .image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.3); /* black background with 50% opacity */
+  padding: 2px;
+}
+
+    .project-image-large {
+      width: 300px; /* width for the larger image */
+      height: 120px; /* height for the larger image */
+    }
+    .no-gutters {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .no-gutters > .col-6 {
+      padding-right: 0;
+      padding-left: 0;
+    }
+    .project-image-small {
+      width: 350px; /* width for the smaller images */
+      height: 100px; /* height for the smaller images */
+    }
+
+    .project-container {
+      margin-top: -80px; ;margin-left: 140px;/* adjust as necessary for vertical positioning */
+    }
+
+
+    .masthead-text_title {
+      font-family: Arial, sans-serif;
+      font-size: 40px;
+      color: white;
+      text-align: center;
+      margin-top: 60px;margin-left: 40px;
+    }
+    /* Style for the picture */
+    .masthead-image {
+      margin-bottom: 30px;margin-left: 140px;
+    }
+
+    .masthead-image img {
+      max-width: 280px;
+      height: auto;
+      border-radius: 0%;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#page-top">Home</a>
+      </li>
+
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#research">Research Experience</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="teaching_and_outreach.html">Teaching and Outreach</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="publication.html">Publications</a>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="masthead d-flex"
+    style="background-image: url('img/IMG_3783.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div class="container text-center">
+      <div class="row h-66 align-items-end">
+        <div class="col">
+          <div class="masthead-text_title">
+            <p> Hurum Maksora Tohfa </p>
+          </div>
+          <div class="masthead-text">
+            <p>Astronomy graduate student at University of Washington</p>
+            <div class="text-faded" style="font-weight: 200;">
+
+              <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" style="font-size: 15px;">
+                I graduated from Bryn Mawr College in Pennsylvania with a bachelor in Physics, minor in mathematics
+                and concentration in scientific computing in May, 2022. I am currently pursuing a PhD in astronomy at University of
+                Washington.
+              </p>
+              <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" style="font-size: 15px;">
+                I was born and raised in Bangladesh. Mathematics caught my interest at a very early age. It eventually led me to physics.
+                I am mainly interested in large scale problems in astrophysics such as the density distribution of the universe or tracing baryons to understand
+                new physics, finding new ways to use the cosmic microwave background radiation to understand variation in fundamental constants, nature of particles
+                that makes up black holes etc.
+
+              </p>
+              <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" style="font-size: 15px;">
+                At the moment, the main question I am trying to answer is how the streaming velocities of baryon affects and have affected structure formation throughout the universe.
+                If you want to learn more about me please check out the rest of this website.
+              </p>
+              <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" margin-left= 50px;>
+                <a class="white-link font-weight-normal" target="_blank" href="pdf/cv.pdf">Latest CV</a>
+                (July 2023)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col" >
+     <div class="masthead-image">
+       <img src="https://user-images.githubusercontent.com/97810883/206708712-66f84c3f-395c-42a6-80b9-6d98b1667222.jpg" alt="Your Picture">
+     </div>
+
+
+     <div class="row mt-2 project-container">
+  <div class="col-12">
+    <div class="image-container">
+      <a href="https://arxiv.org/pdf/2307.06768.pdf">
+        <img src="img/ESA_Planck_CMB2018_notext_1200-1200x606.webp" alt="Project 1" class="img-fluid project-image-large">
+        <div class="image-text">CMB for understanding α variation </div>
+      </a>
     </div>
-    
   </div>
+  <div class="row no-gutters">
+    <div class="col-6">
+      <div class="image-container">
+        <a href="project_link2">
+          <img src='img/download.jpeg' alt="Project 2" class="img-fluid project-image-small">
+          <div class="image-text">21 cm Cosmology</div>
+        </a>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="image-container">
+        <a href="project_link3">
+          <img src='img/lr_lya_tube_s256_40_ns0.849As1.9e-09heat_slope-0.3heat_amp0.9hub0.7.png' alt="Project 3" class="img-fluid project-image-small">
+          <div class="image-text"> Lyman-α forrest with scatter transform </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="position: fixed; bottom: 0; right: 0;">
+     <div class="col">
+       <a href="https://github.com/htohfa" target="_blank"><i class="fab fa-github fa-lg p-2" style="color: white;"></i></a>
+       <a href="https://www.linkedin.com/in/hurum-maksora-tohfa-96aa02187/" target="_blank"><i class="fab fa-linkedin fa-lg p-2" style="color: white;"></i></a>
+       <a href="mailto:htohfa@uw.edu"><i class="fas fa-envelope fa-lg p-2" style="color: white;"></i></a>
+     </div>
+  </div>
+
+
+
+
+
+    <div class="overlay"></div>
+  </header>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-pzjw8l+7Qx8XIHr6SEzB3T4c4Zl2K4j9U4arvC3elwIq79WO+Kf4x2x6i/Cqzdzl" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $(".menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+        $(".menu-toggle > i").toggleClass("fa-times fa-bars");
+      });
+
+      $(".sidebar-nav-item").click(function () {
+        $("#sidebar-wrapper").removeClass("active");
+        $(".menu-toggle > i").toggleClass("fa-times fa-bars");
+      });
+    });
+  </script>
 </body>
 
-        
 </html>
