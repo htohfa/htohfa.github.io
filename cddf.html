@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network Workflow Schematic</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #5d6d7e;
+            margin-bottom: 40px;
+        }
+        
+        .workflow {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .phase {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 6px solid;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .phase:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .phase-1 { border-left-color: #e74c3c; }
+        .phase-2 { border-left-color: #f39c12; }
+        .phase-3 { border-left-color: #27ae60; }
+        .phase-4 { border-left-color: #3498db; }
+        
+        .phase-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .flow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .box {
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 12px;
+            padding: 15px 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .box:hover::before {
+            left: 100%;
+        }
+        
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .input-box { background: #e8f6f3; border-color: #27ae60; }
+        .process-box { background: #fef9e7; border-color: #f39c12; }
+        .output-box { background: #eaf2f8; border-color: #3498db; }
+        .final-box { background: #fadbd8; border-color: #e74c3c; }
+        
+        .arrow {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .network-detail {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .network-step {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        .network-step h4 {
+            margin: 0 0 10px 0;
+            color: #f8f9fa;
+        }
+        
+        .params {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .param {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equation {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        
+        .mfp-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .flow-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .box {
+                text-align: center;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🌌 Column Density Neural Network Workflow</h1>
+        <p class="subtitle">From Simulation Data to Predicted CDDF via Best-Fit Parameter Learning</p>
+        
+        <div class="workflow">
+            <!-- Phase 1: Simulation Data -->
+            <div class="phase phase-1">
+                <h2 class="phase-title">📊 Phase 1: Simulation Data Input</h2>
+                <div class="flow-container">
+                    <div class="box input-box">Simulation<br/>Column Density<br/>(logNHI, logf(NHI))</div>
+                    <div class="arrow">→</div>
+                    <div class="box process-box">Environment Params<br/>(γ, ρ, z_re, z)</div>
+                </div>
+                <p style="margin-top: 15px; color: #5d6d7e;">
+                    <strong>Input:</strong> Raw simulation data from numerical simulations containing column density distribution functions
+                    and corresponding environment parameters (photoionization rate γ, density ρ, reionization redshift z_re, redshift z).
+                </p>
+            </div>
+            
+            <!-- Phase 2: Best Fit Analysis -->
+            <div class="phase phase-2">
+                <h2 class="phase-title">🔬 Phase 2: Best-Fit Parameter Extraction</h2>
+                <div class="flow-container">
+                    <div class="box input-box">Simulation CDDF</div>
+                    <div class="arrow">→</div>
+                    <div class="box process-box">Excess Model Fitting</div>
+                    <div class="arrow">→</div>
+                    <div class="box output-box">Best-Fit Parameters</div>
+                </div>
+                
+                <div class="equation">
+                    <strong>Excess Model:</strong><br/>
+                    log f(N_HI) = log A - β × log N_HI + w(N_HI) × A_gauss × exp(-0.5 × ((log N_HI - μ)/σ)²)<br/>
+                    <br/>
+                    <strong>Transition Weight:</strong> w(N_HI) = 0.5 × (1 + tanh((log N_HI - cutoff)/0.2))
+                </div>
+                
+                <div class="params">
+                    <div class="param">log A (Power Law Normalization)</div>
+                    <div class="param">β (Power Law Slope)</div>
+                    <div class="param">μ (Gaussian Center)</div>
+                    <div class="param">σ (Gaussian Width)</div>
+                    <div class="param">cutoff (Transition Point)</div>
+                    <div class="param">A_gauss (Gaussian Amplitude)</div>
+                </div>
+                
+                <p style="margin-top: 15px; color: #5d6d7e;">
+                    <strong>Process:</strong> Each simulation CDDF is fitted with an excess model combining a power law with a Gaussian bump,
+                    producing 6 best-fit parameters that characterize the shape of the column density distribution.
+                </p>
+            </div>
+            
+            <!-- Phase 3: Neural Network Training -->
+            <div class="phase phase-3">
+                <h2 class="phase-title">🧠 Phase 3: Three-Step Neural Network Training</h2>
+                
+                <div class="network-detail">
+                    <div class="network-step">
+                        <h4>🎯 Step 1: Power Law Network</h4>
+                        <div class="flow-container">
+                            <div class="box input-box">Environment Params<br/>(γ, ρ, z_re, z)</div>
+                            <div class="arrow">→</div>
+                            <div class="box process-box">Neural Network<br/>[64, 128, 256, 128, 64]</div>
+                            <div class="arrow">→</div>
+                            <div class="box output-box">Power Law Params<br/>(log A, β)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="network-step">
+                        <h4>🎯 Step 2: Transition Network</h4>
+                        <div class="flow-container">
+                            <div class="box input-box">Environment + Power Law<br/>(γ, ρ, z_re, z, log A, β)</div>
+                            <div class="arrow">→</div>
+                            <div class="box process-box">Neural Network<br/>[96, 192, 128, 64]</div>
+                            <div class="arrow">→</div>
+                            <div class="box output-box">Bump Params<br/>(μ, cutoff, A_gauss)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="network-step">
+                        <h4>🎯 Step 3: Sigma Network</h4>
+                        <div class="flow-container">
+                            <div class="box input-box">Environment + Power Law + Bump<br/>(γ, ρ, z_re, z, log A, β, μ, cutoff, A_gauss)</div>
+                            <div class="arrow">→</div>
+                            <div class="box process-box">Neural Network<br/>[64, 128, 64]</div>
+                            <div class="arrow">→</div>
+                            <div class="box output-box">Gaussian Width<br/>(σ)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="color: #5d6d7e;">
+                    <strong>Architecture:</strong> Sequential three-step training where each network learns specialized parameter subsets,
+                    with previous predictions feeding into subsequent networks to capture parameter dependencies.
+                </p>
+            </div>
+            
+            <!-- Phase 4: Prediction and Validation -->
+            <div class="phase phase-4">
+                <h2 class="phase-title">🎯 Phase 4: Neural Network Prediction</h2>
+                <div class="flow-container">
+                    <div class="box input-box">New Environment<br/>Conditions<br/>(γ, ρ, z_re, z)</div>
+                    <div class="arrow">→</div>
+                    <div class="box process-box">Trained NN<br/>Pipeline</div>
+                    <div class="arrow">→</div>
+                    <div class="box output-box">Predicted<br/>Parameters<br/>(6 params)</div>
+                    <div class="arrow">→</div>
+                    <div class="box final-box">Predicted CDDF<br/>log f(N_HI)</div>
+                </div>
+                
+                <div class="mfp-section">
+                    <h3 style="margin-top: 0;">📏 Mean Free Path Validation</h3>
+                    <div class="equation" style="background: rgba(255,255,255,0.1); color: white;">
+                        <strong>MFP Calculation:</strong><br/>
+                        κ = ∫ f(N_HI) × (1 - exp(-N_HI × σ_912)) × d(log N_HI) × ln(10)<br/>
+                        λ_mfp = 1/κ [Mpc]
+                    </div>
+                    <p>
+                        <strong>Validation Metric:</strong> Neural network predictions are validated by comparing calculated mean free paths
+                        from predicted CDDFs against simulation-derived values. <span class="highlight">Good predictions achieve < 20% MFP error.</span>
+                    </p>
+                </div>
+                
+                <p style="color: #5d6d7e;">
+                    <strong>Output:</strong> Complete column density distribution function that can be used for astrophysical analysis,
+                    including mean free path calculations for comparison with observational data.
+                </p>
+            </div>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center;">
+            <h3 style="margin: 0 0 10px 0;">🏆 Key Innovation</h3>
+            <p style="margin: 0; font-size: 1.1em;">
+                This three-step architecture leverages parameter dependencies to improve prediction accuracy, 
+                achieving robust CDDF reconstruction for diverse astrophysical environments.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
