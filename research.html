@@ -19,15 +19,14 @@
             backdrop-filter: blur(10px);
         }
 
-        .research-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 0;
         }
 
         .page-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .page-title {
@@ -43,55 +42,51 @@
         .page-subtitle {
             font-size: 1.2rem;
             color: #adb5bd;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             line-height: 1.6;
         }
 
         .research-section {
-            margin-bottom: 80px;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #ffd700;
+            text-align: center;
         }
 
         .research-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .research-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #007bff, #28a745, #ffc107);
         }
 
         .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
-        .research-title {
-            font-size: 1.8rem;
+        .project-title {
+            font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #ffffff;
         }
 
-        .research-meta {
+        .project-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 0.9rem;
         }
 
@@ -106,47 +101,34 @@
             color: #ffc107;
         }
 
-        .research-content {
-            line-height: 1.7;
-            font-size: 1.05rem;
+        .project-description {
+            line-height: 1.6;
             color: #e9ecef;
-        }
-
-        .research-content p {
             margin-bottom: 20px;
         }
 
-        .highlight-box {
-            background: rgba(255, 193, 7, 0.1);
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .research-links {
-            margin-top: 25px;
+        .project-links {
             display: flex;
-            flex-wrap: wrap;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .research-link {
+        .project-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             padding: 8px 16px;
-            background: rgba(0, 123, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             color: #87ceeb;
             text-decoration: none;
-            border-radius: 20px;
+            border-radius: 8px;
             font-size: 0.9rem;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 123, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .research-link:hover {
-            background: rgba(0, 123, 255, 0.3);
+        .project-link:hover {
+            background: rgba(255, 255, 255, 0.2);
             color: #ffffff;
             text-decoration: none;
             transform: translateY(-2px);
@@ -161,18 +143,18 @@
             margin-left: 10px;
         }
 
-        .status-published {
+        .status-active {
             background: #28a745;
             color: white;
         }
 
-        .status-submitted {
-            background: #ffc107;
-            color: #212529;
+        .status-complete {
+            background: #007bff;
+            color: white;
         }
 
-        .status-ongoing {
-            background: #17a2b8;
+        .status-published {
+            background: #6f42c1;
             color: white;
         }
 
@@ -182,10 +164,10 @@
             }
             
             .research-card {
-                padding: 25px;
+                padding: 20px;
             }
             
-            .research-meta {
+            .project-meta {
                 flex-direction: column;
                 gap: 10px;
             }
@@ -201,24 +183,27 @@
         </div>
     </nav>
 
-    <div class="research-container" style="margin-top: 80px;">
+    <div class="container main-content">
         <div class="page-header">
             <h1 class="page-title">Research</h1>
             <p class="page-subtitle">
-                Exploring the cosmos through computational astrophysics, machine learning, and 
-                observational cosmology. My work spans from testing fundamental physics with 
-                CMB data to developing new statistical methods for large-scale surveys.
+                My work spans computational astrophysics, machine learning, and observational cosmology. 
+                I'm particularly interested in developing new methods to extract more information from 
+                large astronomical datasets and understanding how cosmic structure formed.
             </p>
         </div>
 
+        <!-- Current Projects -->
         <div class="research-section">
-            <!-- Current Research -->
+            <h2 class="section-title">Current Projects</h2>
+
+            <!-- LSST Telescope Optimization -->
             <div class="research-card">
-                <h2 class="research-title">
-                    Real-time Telescope Optimization with Deep Learning
-                    <span class="status-badge status-ongoing">Ongoing</span>
-                </h2>
-                <div class="research-meta">
+                <h3 class="project-title">
+                    Real-time Optimization for LSST
+                    <span class="status-badge status-active">Active</span>
+                </h3>
+                <div class="project-meta">
                     <div class="meta-item">
                         <i class="fas fa-university"></i>
                         <span>University of Washington</span>
@@ -232,38 +217,112 @@
                         <span>2023 - Present</span>
                     </div>
                 </div>
-                <div class="research-content">
+                <div class="project-description">
                     <p>
-                        Building a deep learning pipeline that can optimize telescope optics in real-time. 
-                        The challenge? Bridging the gap between perfect simulations and messy reality. 
-                        I'm training convolutional neural networks on 256,000 synthetic images, then using 
-                        transfer learning to adapt them for live telescope systems.
+                        Building deep learning tools to optimize the Legacy Survey of Space and Time (LSST) telescope 
+                        in real-time. The main challenge is training neural networks on synthetic data, then getting 
+                        them to work on actual telescope images where conditions are never quite what you expect.
                     </p>
-                    <div class="highlight-box">
-                        <strong>Key Innovation:</strong> Developed adaptive neural compression algorithms 
-                        that achieve 15.7× compression ratios while maintaining 94.2% detection accuracy 
-                        for critical astronomical features.
-                    </div>
                     <p>
-                        This work could revolutionize how we operate large survey telescopes, making them 
-                        more responsive to changing atmospheric conditions and instrumental effects.
+                        I'm working on compression algorithms that can reduce data volumes by 15+ times while keeping 
+                        all the important astronomical information intact. This is crucial because LSST will generate 
+                        about 20TB of data every night for 10 years.
                     </p>
                 </div>
-                <div class="research-links">
-                    <a href="#" class="research-link">
-                        <i class="fas fa-code"></i>
-                        Code (Coming Soon)
+            </div>
+
+            <!-- Reionization Paper -->
+            <div class="research-card">
+                <h3 class="project-title">
+                    Modeling Cosmic Reionization with Neural Networks
+                    <span class="status-badge status-active">Under Review</span>
+                </h3>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-university"></i>
+                        <span>University of Washington</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Advisor: Prof. Matthew McQuinn</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>2024 - Present</span>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <p>
+                        Developed a new way to model how neutral hydrogen is distributed in the universe after 
+                        reionization. The traditional approach assumes a simple power-law, but that misses a lot 
+                        of the physics happening in self-shielding gas clouds.
+                    </p>
+                    <p>
+                        I created a three-step neural network that learns from high-resolution simulations and can 
+                        predict gas properties much faster than running full simulations. This lets us explore 
+                        parameter space efficiently and compare different reionization scenarios against observations.
+                    </p>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">
+                        <i class="fas fa-file-alt"></i>
+                        Draft Paper
                     </a>
                 </div>
             </div>
 
+            <!-- PeriodicOrbit.jl -->
+            <div class="research-card">
+                <h3 class="project-title">
+                    PeriodicOrbit.jl: Finding Stable Planetary Orbits
+                    <span class="status-badge status-active">In Development</span>
+                </h3>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-university"></i>
+                        <span>University of Washington</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Advisor: Prof. Eric Agol</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span>With Tanawan Chatchadanoraset</span>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <p>
+                        Building a Julia package to find stable periodic orbits in multi-planet systems. The code 
+                        uses automatic differentiation to compute fast, accurate gradients and Levenberg-Marquardt 
+                        optimization to search for orbits that repeat exactly.
+                    </p>
+                    <p>
+                        This is particularly useful for analyzing exoplanet systems where you want to know if the 
+                        observed orbital configuration is actually stable over long timescales. The package also 
+                        supports transit timing constraints.
+                    </p>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">
+                        <i class="fab fa-github"></i>
+                        Code (In Development)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recently Completed -->
+        <div class="research-section">
+            <h2 class="section-title">Recently Completed</h2>
+
             <!-- Lyman-alpha Forest -->
             <div class="research-card">
-                <h2 class="research-title">
-                    Extracting Cosmology from the Lyman-α Forest with Wavelet Transforms
+                <h3 class="project-title">
+                    Wavelet Analysis of the Lyman-α Forest
                     <span class="status-badge status-published">Published</span>
-                </h2>
-                <div class="research-meta">
+                </h3>
+                <div class="project-meta">
                     <div class="meta-item">
                         <i class="fas fa-university"></i>
                         <span>UC Riverside</span>
@@ -277,29 +336,25 @@
                         <span>2023</span>
                     </div>
                 </div>
-                <div class="research-content">
+                <div class="project-description">
                     <p>
-                        <strong>Problem:</strong> Traditional power spectra miss non-Gaussian information 
-                        in Lyman-α forest data. Developed wavelet scattering transform implementation 
-                        to extract this hidden cosmological signal.
+                        Applied wavelet scattering transforms to quasar absorption spectra to extract cosmological 
+                        information that traditional power spectrum analysis misses. The idea is that these "cosmic 
+                        barcodes" contain non-Gaussian information about dark matter that we're not currently using.
                     </p>
                     <p>
-                        <strong>Method:</strong> Applied 1D wavelet scattering transforms to quasar absorption 
-                        spectra, used Fisher matrix analysis to quantify information gain. Achieved 
-                        order-of-magnitude improvement in cosmological parameter constraints.
+                        Showed that this approach can improve cosmological parameter constraints by an order of 
+                        magnitude compared to standard methods. This could be crucial for upcoming surveys like 
+                        DESI that will measure millions of these spectra.
                     </p>
-                    <div class="highlight-box">
-                        <strong>Impact:</strong> Demonstrates how advanced signal processing can extract 
-                        significantly more cosmological information from existing datasets.
-                    </div>
                 </div>
-                <div class="research-links">
-                    <a href="https://arxiv.org/pdf/2310.06010.pdf" class="research-link" target="_blank">
+                <div class="project-links">
+                    <a href="https://arxiv.org/pdf/2310.06010.pdf" class="project-link" target="_blank">
                         <i class="fas fa-file-pdf"></i>
-                        Paper (Phys. Rev. Lett.)
+                        Physical Review Letters
                     </a>
-                    <a href="https://github.com/htohfa" class="research-link" target="_blank">
-                        <i class="fas fa-code"></i>
+                    <a href="#" class="project-link">
+                        <i class="fab fa-github"></i>
                         Code
                     </a>
                 </div>
@@ -307,11 +362,11 @@
 
             <!-- Fine Structure Constant -->
             <div class="research-card">
-                <h2 class="research-title">
-                    Testing Fundamental Physics with the Cosmic Microwave Background
+                <h3 class="project-title">
+                    Testing Fundamental Constants with the CMB
                     <span class="status-badge status-published">Published</span>
-                </h2>
-                <div class="research-meta">
+                </h3>
+                <div class="project-meta">
                     <div class="meta-item">
                         <i class="fas fa-university"></i>
                         <span>Haverford College</span>
@@ -329,31 +384,23 @@
                         <span>AIP SPS Outstanding Research Award</span>
                     </div>
                 </div>
-                <div class="research-content">
+                <div class="project-description">
                     <p>
-                        What if the fundamental constants of nature weren't actually constant? 
-                        This seemingly wild idea has serious theoretical motivation and observational hints. 
-                        I used the cosmic microwave background—our baby picture of the universe—to search 
-                        for evidence that the fine-structure constant α has evolved over cosmic time.
+                        Used data from the cosmic microwave background to test whether fundamental constants 
+                        like the fine-structure constant have changed over the 13.8 billion year history of 
+                        the universe. This was my undergraduate thesis project.
                     </p>
                     <p>
-                        Working with Planck 2018 data, I tested two theoretical models: the 
-                        Bekenstein-Sandvik-Barrow-Magueijo model and the Runaway Dilaton from string theory. 
-                        While we didn't find smoking-gun evidence for variation, we set some of the tightest 
-                        constraints to date.
+                        We didn't find evidence that constants are changing (which is probably good for physics!), 
+                        but we set some of the tightest constraints to date using two different theoretical models.
                     </p>
-                    <div class="highlight-box">
-                        <strong>Why This Matters:</strong> If fundamental constants do vary, it would 
-                        revolutionize our understanding of physics and potentially point to new physics 
-                        beyond the Standard Model.
-                    </div>
                 </div>
-                <div class="research-links">
-                    <a href="https://arxiv.org/pdf/2307.06768.pdf" class="research-link" target="_blank">
+                <div class="project-links">
+                    <a href="https://arxiv.org/pdf/2307.06768.pdf" class="project-link" target="_blank">
                         <i class="fas fa-file-pdf"></i>
-                        Paper (Phys. Rev. D)
+                        Physical Review D
                     </a>
-                    <a href="pdf/senior_thesis_hurum_tohfa.pdf" class="research-link" target="_blank">
+                    <a href="pdf/senior_thesis_hurum_tohfa.pdf" class="project-link" target="_blank">
                         <i class="fas fa-graduation-cap"></i>
                         Senior Thesis
                     </a>
@@ -362,11 +409,11 @@
 
             <!-- Microsoft Research -->
             <div class="research-card">
-                <h2 class="research-title">
-                    AI for Disease Surveillance: Mosquito Species Classification
-                    <span class="status-badge status-ongoing">Industry Project</span>
-                </h2>
-                <div class="research-meta">
+                <h3 class="project-title">
+                    Machine Learning for Disease Surveillance
+                    <span class="status-badge status-complete">Complete</span>
+                </h3>
+                <div class="project-meta">
                     <div class="meta-item">
                         <i class="fas fa-building"></i>
                         <span>Microsoft Research</span>
@@ -380,34 +427,28 @@
                         <span>Summer 2022</span>
                     </div>
                 </div>
-                <div class="research-content">
+                <div class="project-description">
                     <p>
-                        Project Premonition aims to create a biological map of diseases using blood 
-                        collected by mosquitoes. The challenge? Accurately identifying mosquito species 
-                        from their wingbeat signatures using optical sensors that are highly sensitive 
-                        to environmental noise.
+                        Worked on Project Premonition, which aims to track disease vectors by analyzing blood 
+                        collected by mosquitoes. My job was to teach neural networks to identify mosquito species 
+                        from the sound of their wingbeats.
                     </p>
                     <p>
-                        I developed a noise-filtering system and designed a time-series LSTM network 
-                        that significantly outperformed the existing GAN-based classifier. The key was 
-                        distinguishing between actual species-specific wingbeat patterns and environmental 
-                        noise changes.
+                        Built a time-series LSTM that significantly outperformed the existing approach. The main 
+                        challenge was filtering out environmental noise from the actual species-specific wingbeat patterns.
                     </p>
-                    <div class="highlight-box">
-                        <strong>Real-world Impact:</strong> This technology could help track disease 
-                        vectors in real-time, potentially revolutionizing how we monitor and respond 
-                        to vector-borne diseases like malaria and Zika.
-                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Earlier Work -->
+        <div class="research-section">
+            <h2 class="section-title">Earlier Projects</h2>
 
             <!-- X-ray Cavities -->
             <div class="research-card">
-                <h2 class="research-title">
-                    Understanding AGN Feedback through X-ray Cavity Analysis
-                    <span class="status-badge status-published">Research Complete</span>
-                </h2>
-                <div class="research-meta">
+                <h3 class="project-title">Understanding Galaxy Cluster Heating</h3>
+                <div class="project-meta">
                     <div class="meta-item">
                         <i class="fas fa-university"></i>
                         <span>MIT</span>
@@ -421,39 +462,29 @@
                         <span>Summer 2021</span>
                     </div>
                 </div>
-                <div class="research-content">
+                <div class="project-description">
                     <p>
-                        Galaxy clusters should be cooling catastrophically, but they're not. Active galactic 
-                        nuclei (AGN) are thought to provide the heating that balances this cooling through 
-                        "bubbles" or cavities visible in X-ray observations.
+                        Galaxy clusters should be cooling catastrophically, but they're not. The leading explanation 
+                        involves heating from supermassive black holes that create "bubbles" visible in X-ray images.
                     </p>
                     <p>
-                        I created simulations to test whether the observed correlation between cavity 
-                        pressure and cluster luminosity is actually specific to AGN feedback, or just 
-                        a generic property of the cluster gas. Turns out, it might be the latter—which 
-                        suggests some "cavities" in telescope data might actually be numerical noise 
-                        rather than real physical structures.
+                        I ran simulations to test whether the correlations we see in observations are actually specific 
+                        to black hole feedback, or just generic properties of hot cluster gas. Turns out some of what 
+                        we thought were real cavities might just be noise in the data.
                     </p>
-                    <div class="highlight-box">
-                        <strong>Key Finding:</strong> The pressure-luminosity correlation isn't unique 
-                        to cavities—it's a general property of cluster gas, challenging our interpretation 
-                        of these observations.
-                    </div>
                 </div>
-                <div class="research-links">
-                    <a href="pdf/1627271256065.pdf" class="research-link" target="_blank">
+                <div class="project-links">
+                    <a href="pdf/1627271256065.pdf" class="project-link" target="_blank">
                         <i class="fas fa-presentation"></i>
-                        Poster Presentation
+                        MIT Poster
                     </a>
                 </div>
             </div>
 
-            <!-- Earlier Work -->
+            <!-- Holographic Methods -->
             <div class="research-card">
-                <h2 class="research-title">
-                    Exploring Exotic Physics with Holographic Methods
-                </h2>
-                <div class="research-meta">
+                <h3 class="project-title">Exotic Physics with Holographic Methods</h3>
+                <div class="project-meta">
                     <div class="meta-item">
                         <i class="fas fa-university"></i>
                         <span>Bryn Mawr College</span>
@@ -467,63 +498,22 @@
                         <span>2019-2021</span>
                     </div>
                 </div>
-                <div class="research-content">
+                <div class="project-description">
                     <p>
-                        Using the AdS/CFT correspondence—one of the most powerful tools in theoretical 
-                        physics—I computed correlation functions for Lifshitz field theories. These 
-                        exotic theories are relevant for understanding quantum phase transitions in 
-                        condensed matter systems.
+                        Used the AdS/CFT correspondence to compute correlation functions for weird quantum field theories 
+                        called Lifshitz theories. The cool thing about this approach is that hard quantum field theory 
+                        calculations become easier gravity problems in higher dimensions.
                     </p>
                     <p>
-                        The beauty of this approach is that difficult quantum field theory calculations 
-                        become manageable gravity problems in higher dimensions. I solved Klein-Gordon 
-                        equations in curved spacetime to extract quantum field theory observables.
-                    </p>
-                    <p>
-                        I also worked on plasma physics, using bispectral analysis to understand energy 
-                        transfer in plasma systems—work that's now being used to study stability in 
-                        galactic spiral arms.
+                        Also worked on plasma physics, using something called bispectral analysis to understand energy 
+                        transfer in plasma systems. That code is now being used to study spiral arm stability in galaxies.
                     </p>
                 </div>
-                <div class="research-links">
-                    <a href="pdf/1583401921000.pdf" class="research-link" target="_blank">
+                <div class="project-links">
+                    <a href="pdf/1583401921000.pdf" class="project-link" target="_blank">
                         <i class="fas fa-presentation"></i>
                         Conference Poster
                     </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Current Interests -->
-        <div class="research-section">
-            <div class="research-card">
-                <h2 class="research-title">What's Next?</h2>
-                <div class="research-content">
-                    <p>
-                        I'm excited about several emerging directions in computational astrophysics:
-                    </p>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li style="margin-bottom: 15px;">
-                            <i class="fas fa-rocket" style="color: #ffc107; margin-right: 10px;"></i>
-                            <strong>AI-driven discovery:</strong> Using machine learning to find unexpected 
-                            patterns in large astronomical datasets
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            <i class="fas fa-brain" style="color: #ffc107; margin-right: 10px;"></i>
-                            <strong>Physics-informed neural networks:</strong> Incorporating known physics 
-                            into ML models for more reliable predictions
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            <i class="fas fa-expand-arrows-alt" style="color: #ffc107; margin-right: 10px;"></i>
-                            <strong>Multi-scale modeling:</strong> Connecting small-scale physics to 
-                            large-scale cosmic structure
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            <i class="fas fa-eye" style="color: #ffc107; margin-right: 10px;"></i>
-                            <strong>Next-generation surveys:</strong> Preparing for LSST, Roman, and 
-                            other transformative observatories
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
