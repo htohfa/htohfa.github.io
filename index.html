@@ -4,11 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content=" Personal Website for Hurum Maksora Tohfa">
+  <meta name="description" content="Hurum Maksora Tohfa - PhD student in Astrophysics at University of Washington">
   <meta name="author" content="Hurum Maksora Tohfa">
 
   <title>Hurum Maksora Tohfa</title>
-
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -16,83 +15,171 @@
   <link href="css/animate.css" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
   <style>
-    /* Change the navigation bar background to transparent */
+    /* Navigation styling */
     #sidebar-wrapper {
-      background-color: transparent;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
     }
 
-    /* Change the title font and size */
+    /* Typography */
     header.masthead h1 {
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 48px;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
       text-align: center;
-      margin-top: 50px;
-    }
-
-    /* Set the background color of the body to black */
-    body {
-      background-color: black;
-    }
-
-    /* Style for the text */
-    .masthead-text {
-      font-family: Arial, sans-serif;
-      font-size: 20px;
-      color: white;
-      text-align: left;
       margin-top: 40px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
-    .image-container .image-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 12px;
-  background: rgba(0, 0, 0, 0.3); /* black background with 50% opacity */
-  padding: 2px;
-}
-
-    .project-image-large {
-      width: 300px; /* width for the larger image */
-      height: 120px; /* height for the larger image */
-    }
-    .no-gutters {
-      margin-right: 0;
-      margin-left: 0;
+    body {
+      background-color: #0a0a0a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .no-gutters > .col-6 {
-      padding-right: 0;
-      padding-left: 0;
-    }
-    .project-image-small {
-      width: 350px; /* width for the smaller images */
-      height: 100px; /* height for the smaller images */
-    }
-
-    .project-container {
-      margin-top: -80px; ;margin-left: 140px;/* adjust as necessary for vertical positioning */
+    .intro-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #f8f9fa;
+      text-align: left;
+      margin-top: 30px;
     }
 
-
-    .masthead-text_title {
-      font-family: Arial, sans-serif;
-      font-size: 40px;
-      color: white;
-      text-align: center;
-      margin-top: 60px;margin-left: 40px;
-    }
-    /* Style for the picture */
-    .masthead-image {
-      margin-bottom: 30px;margin-left: 140px;
+    .subtitle {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #e9ecef;
+      margin-bottom: 20px;
     }
 
-    .masthead-image img {
-      max-width: 280px;
+    /* Image styling */
+    .profile-image {
+      margin-bottom: 30px;
+      margin-left: 80px;
+    }
+
+    .profile-image img {
+      max-width: 300px;
       height: auto;
-      border-radius: 0%;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Project showcase */
+    .project-gallery {
+      margin-top: 40px;
+      margin-left: 80px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .project-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+      padding: 20px 15px 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .large-project {
+      height: 200px;
+    }
+
+    .small-project {
+      height: 140px;
+    }
+
+    .large-project img,
+    .small-project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Social links */
+    .social-links {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .social-links a {
+      color: #f8f9fa;
+      font-size: 1.5rem;
+      margin-left: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #007bff;
+      transform: translateY(-2px);
+    }
+
+    /* Quick facts */
+    .quick-facts {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .fact-item {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .fact-label {
+      font-weight: 600;
+      color: #ffc107;
+      margin-right: 8px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .profile-image {
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .project-gallery {
+        margin-left: 0;
+      }
+
+      header.masthead h1 {
+        font-size: 2.5rem;
+      }
+
+      .intro-text {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -104,120 +191,142 @@
   </a>
   <nav id="sidebar-wrapper">
     <ul class="sidebar-nav">
-
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#page-top">Home</a>
       </li>
-
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="research.html">Research </a>
+        <a class="js-scroll-trigger" href="research.html">Research</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="teaching_and_outreach.html">Teaching and Outreach</a>
+        <a class="js-scroll-trigger" href="projects.html">Projects</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="publication.html">Publications</a>
+        <a class="js-scroll-trigger" href="publications.html">Publications</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="teaching.html">Teaching</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="about.html">About Me</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="blog.html">Blog</a>
       </li>
     </ul>
   </nav>
 
   <header class="masthead d-flex"
-    style="background-image: url('img/IMG_3783.jpg'); background-repeat: no-repeat; background-size: cover;">
-    <div class="container text-center">
-      <div class="row h-66 align-items-end">
-        <div class="col">
-          <div class="masthead-text_title">
-            <p> Hurum Maksora Tohfa </p>
+    style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/IMG_3783.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        
+        <!-- Left column - Text content -->
+        <div class="col-lg-7">
+          <h1>Hurum Maksora Tohfa</h1>
+          <div class="subtitle">
+            PhD Student in Astrophysics • University of Washington
           </div>
-          <div class="masthead-text">
-            <p>Astronomy graduate student at University of Washington</p>
-            <div class="text-faded" style="font-weight: 200;">
+          
+          <div class="intro-text">
+            <p>
+              I'm working on some of the biggest questions in cosmology—from understanding how the universe's 
+              structure formed to testing whether fundamental constants have changed over cosmic time. 
+              Currently, I'm diving deep into how baryonic matter streaming affects structure formation 
+              and developing machine learning tools to extract more information from astronomical surveys.
+            </p>
+            
+            <p>
+              Originally from Bangladesh, I've always been fascinated by mathematics and how it helps us 
+              understand the cosmos. My journey has taken me from studying fine-structure constant variations 
+              with CMB data to developing neural networks that can classify mosquito species by their wingbeats 
+              (yes, really!).
+            </p>
+            
+            <p>
+              When I'm not debugging simulations or wrestling with datasets, I'm passionate about making 
+              physics accessible to everyone, especially students from underrepresented backgrounds.
+            </p>
 
-              <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" style="font-size: 15px;">
-                I graduated from Bryn Mawr College in Pennsylvania with a bachelor in Physics, minor in mathematics
-                and concentration in scientific computing in May, 2022. I am currently pursuing a PhD in astronomy at University of
-                Washington.
-              </p>
-              <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" style="font-size: 15px;">
-                I was born and raised in Bangladesh. Mathematics caught my interest at a very early age. It eventually led me to physics.
-                I am mainly interested in large scale problems in astrophysics such as the density distribution of the universe or tracing baryons to understand
-                new physics, finding new ways to use the cosmic microwave background radiation to understand variation in fundamental constants, nature of particles
-                that makes up dark matter etc.
+            <div class="quick-facts">
+              <div class="fact-item">
+                <span class="fact-label">Current Focus:</span>
+                Baryonic streaming velocity effects on structure formation
+              </div>
+              <div class="fact-item">
+                <span class="fact-label">Latest Work:</span>
+                Real-time telescope optimization with deep learning
+              </div>
+              <div class="fact-item">
+                <span class="fact-label">Publications:</span>
+                3 papers, 136+ citations
+              </div>
+            </div>
 
-              </p>
-              <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" style="font-size: 15px;">
-                At the moment, the main question I am trying to answer is how the streaming velocity of baryons affects and have affected structure formation throughout the universe.
-                If you want to learn more about me please check out the rest of this website.
-              </p>
-              <p data-scroll="toggle(.fromBottomIn, .fromBottomOut)" margin-left= 50px;>
-                <a class="white-link font-weight-normal" target="_blank" href="pdf/resume_tohfa_2024.pdf">Latest CV</a>
-                (June 2024)
-              </p>
+            <div class="mt-4">
+              <a class="btn btn-outline-light btn-lg" href="pdf/resume_tohfa_2024.pdf" target="_blank">
+                <i class="fas fa-file-pdf mr-2"></i>Download CV
+              </a>
+              <a class="btn btn-light btn-lg ml-3" href="research.html">
+                <i class="fas fa-flask mr-2"></i>View Research
+              </a>
             </div>
           </div>
         </div>
-        <div class="col" >
-     <div class="masthead-image">
-       <img src="https://user-images.githubusercontent.com/97810883/206708712-66f84c3f-395c-42a6-80b9-6d98b1667222.jpg" alt="Your Picture">
-     </div>
+        
+        <!-- Right column - Image and projects -->
+        <div class="col-lg-5">
+          <div class="profile-image">
+            <img src="https://user-images.githubusercontent.com/97810883/206708712-66f84c3f-395c-42a6-80b9-6d98b1667222.jpg" 
+                 alt="Hurum Maksora Tohfa">
+          </div>
 
-
-     <div class="row mt-2 project-container">
-  <div class="col-12">
-    <div class="image-container">
-      <a href="">
-        <img src="img/ESA_Planck_CMB2018_notext_1200-1200x606.webp" alt="Project 1" class="img-fluid project-image-large">
-        <div class="image-text">CMB for understanding α variation </div>
-      </a>
-    </div>
-  </div>
-  <div class="row no-gutters">
-    <div class="col-6">
-      <div class="image-container">
-        <a href="project_link2">
-          <img src='img/download.jpeg' alt="Project 2" class="img-fluid project-image-small">
-          <div class="image-text">21 cm Cosmology</div>
-        </a>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="image-container">
-        <a href="project_link3">
-          <img src='img/lr_lya_tube_s256_40_ns0.849As1.9e-09heat_slope-0.3heat_amp0.9hub0.7.png' alt="Project 3" class="img-fluid project-image-small">
-          <div class="image-text"> Lyman-α forrest with scatter transform </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
+          <div class="project-gallery">
+            <div class="project-item large-project">
+              <img src="img/ESA_Planck_CMB2018_notext_1200-1200x606.webp" alt="CMB Research">
+              <div class="project-overlay">
+                Searching for fine-structure constant evolution in CMB data
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-6">
+                <div class="project-item small-project">
+                  <img src="img/download.jpeg" alt="21cm Cosmology">
+                  <div class="project-overlay">
+                    21cm cosmology & reionization
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="project-item small-project">
+                  <img src="img/lr_lya_tube_s256_40_ns0.849As1.9e-09heat_slope-0.3heat_amp0.9hub0.7.png" alt="Lyman-alpha forest">
+                  <div class="project-overlay">
+                    Lyman-α forest with wavelet transforms
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row" style="position: fixed; bottom: 0; right: 0;">
-     <div class="col">
-       <a href="https://github.com/htohfa" target="_blank"><i class="fab fa-github fa-lg p-2" style="color: white;"></i></a>
-       <a href="https://www.linkedin.com/in/hurum-maksora-tohfa-96aa02187/" target="_blank"><i class="fab fa-linkedin fa-lg p-2" style="color: white;"></i></a>
-       <a href="mailto:htohfa@uw.edu"><i class="fas fa-envelope fa-lg p-2" style="color: white;"></i></a>
-     </div>
-  </div>
-
-
-
-
-
-    <div class="overlay"></div>
+    <!-- Social links -->
+    <div class="social-links">
+      <a href="https://github.com/htohfa" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/hurum-maksora-tohfa-96aa02187/" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="mailto:htohfa@uw.edu" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
   </header>
 
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-pzjw8l+7Qx8XIHr6SEzB3T4c4Zl2K4j9U4arvC3elwIq79WO+Kf4x2x6i/Cqzdzl" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script>
     $(document).ready(function () {
       $(".menu-toggle").click(function (e) {
@@ -229,6 +338,21 @@
       $(".sidebar-nav-item").click(function () {
         $("#sidebar-wrapper").removeClass("active");
         $(".menu-toggle > i").toggleClass("fa-times fa-bars");
+      });
+
+      // Smooth scrolling for anchor links
+      $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && 
+            location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+          }
+        }
       });
     });
   </script>
