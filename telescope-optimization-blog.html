@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Telescopes to Self-Optimize - Hurum Tohfa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                        url('https://lsst-web.ncsa.illinois.edu/sites/lsst-web.ncsa.illinois.edu/files/styles/hero_image/public/LSST_hero_image.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.9) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 0;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+        }
+
+        .blog-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .blog-content {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.05rem;
+        }
+
+        .blog-content h2 {
+            color: #ffd700;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            margin-bottom: 18px;
+            color: #e9ecef;
+        }
+
+        .computational-highlight {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.15), rgba(0, 123, 255, 0.15));
+            border: 2px solid rgba(40, 167, 69, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .computational-highlight::before {
+            content: "🔧";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #87ceeb;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .blog-title {
+                font-size: 1.8rem;
+            }
+            
+            .blog-content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-home mr-2"></i>Hurum Tohfa
+            </a>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <a href="blog.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Blog
+        </a>
+
+        <div class="blog-header">
+            <h1 class="blog-title">Teaching Telescopes to Self-Optimize</h1>
+        </div>
+
+        <div class="blog-content">
+            <p>
+                Imagine you're trying to take the sharpest possible photo, but every few seconds someone slightly bumps your camera. That's essentially what happens to large telescopes every night. The atmosphere is constantly shifting, gravity pulls on the massive mirrors as the telescope moves, and temperature changes throughout the night cause everything to expand and contract slightly.
+            </p>
+
+            <p>
+                The result? Stars that should look like perfect points of light instead appear blurry and distorted. For a $800 million telescope designed to solve some of the biggest mysteries in the universe, this is a serious problem.
+            </p>
+
+            <h2>Why Telescopes Need to Constantly Adjust Themselves</h2>
+
+            <p>
+                Modern telescopes solve this with something called active optics. Think of it like image stabilization in your phone camera, but for massive mirrors that weigh tons. The telescope constantly measures how distorted the starlight looks, then uses hundreds of tiny actuators to push and pull on the mirrors to correct the problems in real-time.
+            </p>
+
+            <p>
+                The key is measuring the "wavefront"—basically, how the light waves from a star get scrambled as they travel through the atmosphere and bounce off the telescope's imperfect mirrors. To do this, telescopes deliberately take slightly out-of-focus images of bright stars. These create distinctive ring-shaped patterns that reveal exactly how the light is being distorted.
+            </p>
+
+            <p>
+                The current approach uses physics equations to analyze these patterns and figure out what corrections to apply. It works, but it's slow and struggles when the images aren't perfect—like when multiple stars overlap or when parts of the image are cut off by the camera housing.
+            </p>
+
+            <h2>Training in Virtual Worlds</h2>
+
+            <p>
+                Here's where machine learning comes in. Instead of solving physics equations every time, what if we could train a neural network to instantly recognize these distortion patterns and predict the needed corrections?
+            </p>
+
+            <p>
+                The challenge is that you need massive amounts of training data, and getting that from real telescopes is practically impossible. You'd need thousands of images where you already know the "right answer"—the exact amount of distortion present. But if you already knew that, you wouldn't need the system in the first place.
+            </p>
+
+            <p>
+                So I did what astronomers do best: I built a virtual universe. Using detailed computer simulations of the telescope, I generated hundreds of thousands of these ring-shaped star images under every possible condition I could think of. Different atmospheric turbulence, various types of mirror distortions, stars of different brightness, overlapping sources, partially blocked images—everything that could go wrong in real life.
+            </p>
+
+            <div class="computational-highlight">
+                <h3 style="color: #28a745; margin-top: 0;">The Power of Simulation</h3>
+                <p>
+                    The neural network learned to recognize patterns that would take the physics-based algorithm several minutes to solve, but could do it in milliseconds. During training, I could tell it "here's what this distorted star image looks like, and here's exactly what corrections the telescope needs to make." After seeing hundreds of thousands of examples, it became remarkably good at making these predictions.
+                </p>
+            </div>
+
+            <h2>The Reality Check</h2>
+
+            <p>
+                The network worked beautifully on simulated data—40 times faster than the traditional approach and significantly more accurate, especially for challenging cases with overlapping stars or partially blocked images. But simulations, no matter how detailed, are never perfect representations of reality.
+            </p>
+
+            <p>
+                Real telescopes have all sorts of messy details that are hard to simulate perfectly. Dust specks on mirrors, tiny vibrations from wind, slight temperature variations across the camera, electronic noise that varies throughout the night. When you train a neural network entirely on perfect simulations, it can struggle when faced with these real-world imperfections.
+            </p>
+
+            <p>
+                This is called the domain adaptation problem—your model becomes an expert at one type of data but needs to learn how to handle slightly different data from the real world.
+            </p>
+
+            <h2>Building the Bridge to Reality</h2>
+
+            <p>
+                The solution was transfer learning—starting with the network that had learned from simulations, then carefully retraining parts of it on real telescope data. But which parts should I retrain? I tested three different approaches:
+            </p>
+
+            <p>
+                First, I tried freezing the image analysis part of the network (the part that learned to recognize patterns in the star images) and only retraining the final prediction layers. The idea was that recognizing distorted starlight should be similar whether it's simulated or real, but maybe the relationship between those patterns and the needed corrections was different.
+            </p>
+
+            <p>
+                Then I flipped it—kept the prediction part frozen but allowed the image analysis part to adapt to real telescope images. Maybe the patterns looked different in real data, but once extracted, they meant the same thing.
+            </p>
+
+            <p>
+                Finally, I tried the full approach: let the entire network adapt to real data, using the simulation training as a starting point rather than the final answer.
+            </p>
+
+            <h2>What I Found</h2>
+
+            <p>
+                The results were telling. The approach that worked best was letting the entire network adapt—the third strategy. The simulation training provided a great foundation, but both the pattern recognition and prediction parts needed some adjustment for real data.
+            </p>
+
+            <p>
+                The partially frozen approaches struggled more, suggesting that the differences between simulated and real data affected multiple parts of the system in subtle ways. It's like learning to drive on a simulator—you pick up useful skills, but everything from the steering feel to the visual cues needs some adjustment when you get in a real car.
+            </p>
+
+            <p>
+                Even more encouraging, the network that adapted to real data maintained its speed advantage while achieving accuracy that matched or exceeded the traditional physics-based approach. It could handle the challenging cases that broke the older system—overlapping stars, partially blocked images, and noisy data that would normally require careful preprocessing.
+            </p>
+
+            <h2>From Lab to Sky</h2>
+
+            <p>
+                Now comes the exciting part: deploying this system on an actual telescope. The Rubin Observatory is scheduled to begin operations soon, and having a more robust, faster wavefront estimation system could significantly improve the telescope's performance, especially in crowded star fields where traditional methods struggle.
+            </p>
+
+            <p>
+                The ability to maintain sharp images across more of the sky means more useful data for studying everything from nearby asteroids to distant galaxies. When you're planning to survey the entire southern sky repeatedly for ten years, every improvement in image quality translates to better science.
+            </p>
+
+            <p>
+                What started as a computer vision problem—teaching machines to recognize patterns in astronomical images—turned into a lesson about the gap between simulation and reality. The most sophisticated models still need to be carefully adapted to work in the messy, imperfect real world. But when that adaptation works, the results can be transformative.
+            </p>
+
+            <p>
+                The night sky is about to get a lot sharper.
+            </p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
