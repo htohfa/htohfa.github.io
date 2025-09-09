@@ -1,55 +1,392 @@
-<article class="blog-post">
-    <div class="post-header">
-        <h2 class="post-title">
-            <a href="telescope-optimization-blog.html" style="color: inherit; text-decoration: none;">
-                Teaching Telescopes to Self-Optimize
-            </a>
-        </h2>
-        <div class="post-meta">
-            <i class="fas fa-calendar mr-2"></i>January 2025
-            <span class="mx-2">•</span>
-            <i class="fas fa-clock mr-2"></i>8 min read
-        </div>
-        <div class="post-tags">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Telescopes</span>
-            <span class="tag">Active Optics</span>
-        </div>
-    </div>
-    <div class="post-content">
-        <p>
-            How I trained neural networks to help telescopes automatically correct for atmospheric 
-            disturbances and mechanical imperfections, and why bridging the gap between simulation 
-            and reality turned out to be the hardest part.
-        </p>
-        <a href="telescope-optimization-blog.html" class="read-more">Read more →</a>
-    </div>
-</article>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Hurum Tohfa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
 
-<article class="blog-post">
-    
-    <div class="post-header">
-        <h2 class="post-title">
-            <a href="reionization-blog.html" style="color: inherit; text-decoration: none;">
-                Building Virtual Universes to Understand Reionization
+        .navbar {
+            background: rgba(0, 0, 0, 0.9) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 60px 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #e9ecef;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-post {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .post-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .post-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+        }
+
+        .post-header {
+            padding: 25px;
+        }
+
+        .post-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .post-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .post-title a:hover {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #adb5bd;
+        }
+
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .post-content {
+            color: #e9ecef;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: #87ceeb;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .coming-soon {
+            color: #ffc107;
+            font-style: italic;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .available-now {
+            color: #28a745;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #87ceeb;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .post-header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-home mr-2"></i>Hurum Tohfa
             </a>
-        </h2>
-        <div class="post-meta">
-            <i class="fas fa-calendar mr-2"></i>January 2025
-            <span class="mx-2">•</span>
-            <i class="fas fa-clock mr-2"></i>12 min read
         </div>
-        <div class="post-tags">
-            <span class="tag">Cosmology</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Simulations</span>
+    </nav>
+
+    <div class="container main-content">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+
+        <div class="page-header">
+            <h1 class="page-title">Research Stories</h1>
+            <p class="page-subtitle">
+                I write about my projects without the jargon—what the actual problems are, 
+                why they're interesting, and what I learned along the way.
+            </p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Telescope Optimization Blog -->
+            <article class="blog-post" onclick="window.location.href='telescope-optimization-blog.html'">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="post-header">
+                    <h2 class="post-title">
+                        <a href="telescope-optimization-blog.html">
+                            Teaching Telescopes to Self-Optimize
+                        </a>
+                    </h2>
+                    <div class="post-meta">
+                        <i class="fas fa-calendar mr-2"></i>January 2025
+                        <span>•</span>
+                        <i class="fas fa-clock mr-2"></i>8 min read
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Telescopes</span>
+                        <span class="tag">Active Optics</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            How I trained neural networks to help telescopes automatically correct for atmospheric 
+                            disturbances and mechanical imperfections, and why bridging the gap between simulation 
+                            and reality turned out to be the hardest part.
+                        </p>
+                        <div class="available-now">Read Now →</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Reionization Blog -->
+            <article class="blog-post" onclick="window.location.href='reionization-blog.html'">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="post-header">
+                    <h2 class="post-title">
+                        <a href="reionization-blog.html">
+                            Building Virtual Universes to Understand Reionization
+                        </a>
+                    </h2>
+                    <div class="post-meta">
+                        <i class="fas fa-calendar mr-2"></i>January 2025
+                        <span>•</span>
+                        <i class="fas fa-clock mr-2"></i>12 min read
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">Cosmology</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Simulations</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            How I use high-resolution simulations and neural networks to model what happened when 
+                            the first stars lit up the universe, and why getting the small-scale physics right matters.
+                        </p>
+                        <div class="available-now">Read Now →</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Coming Soon Posts -->
+            <article class="blog-post">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="post-header">
+                    <h2 class="post-title">Hunting for Stable Orbits in Chaotic Systems</h2>
+                    <div class="post-meta">
+                        <i class="fas fa-calendar mr-2"></i>Coming Soon
+                        <span>•</span>
+                        <i class="fas fa-clock mr-2"></i>10 min read
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">Orbital Dynamics</span>
+                        <span class="tag">Julia</span>
+                        <span class="tag">Optimization</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            Building Julia code to find planetary configurations that repeat perfectly over time, 
+                            using automatic differentiation and some clever optimization tricks.
+                        </p>
+                        <div class="coming-soon">Coming Soon</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80');"></div>
+                <div class="post-header">
+                    <h2 class="post-title">How Dark Matter Streaming Changed Everything</h2>
+                    <div class="post-meta">
+                        <i class="fas fa-calendar mr-2"></i>Coming Soon
+                        <span>•</span>
+                        <i class="fas fa-clock mr-2"></i>9 min read
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">Dark Matter</span>
+                        <span class="tag">Cosmology</span>
+                        <span class="tag">Structure Formation</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            The story of baryonic streaming velocity—a subtle effect from the early universe that 
+                            turns out to have big consequences for how cosmic structure forms.
+                        </p>
+                        <div class="coming-soon">Coming Soon</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="post-header">
+                    <h2 class="post-title">Finding Hidden Information in Quasar Light</h2>
+                    <div class="post-meta">
+                        <i class="fas fa-calendar mr-2"></i>Coming Soon
+                        <span>•</span>
+                        <i class="fas fa-clock mr-2"></i>11 min read
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">Wavelets</span>
+                        <span class="tag">Quasars</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            How I used wavelets (math tools from signal processing) to extract new cosmological 
+                            information from Lyman-α forest data that traditional methods were missing.
+                        </p>
+                        <div class="coming-soon">Coming Soon</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80');"></div>
+                <div class="post-header">
+                    <h2 class="post-title">Has Physics Changed Over 13.8 Billion Years?</h2>
+                    <div class="post-meta">
+                        <i class="fas fa-calendar mr-2"></i>Coming Soon
+                        <span>•</span>
+                        <i class="fas fa-clock mr-2"></i>7 min read
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">Fundamental Constants</span>
+                        <span class="tag">CMB</span>
+                        <span class="tag">Cosmology</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            Using the cosmic microwave background to test whether fundamental constants have 
+                            evolved since the early universe. Spoiler: probably not, but the constraints are interesting.
+                        </p>
+                        <div class="coming-soon">Coming Soon</div>
+                    </div>
+                </div>
+            </article>
         </div>
     </div>
-    <div class="post-content">
-        <p>
-            How I use high-resolution simulations and neural networks to model what happened when 
-            the first stars lit up the universe, and why getting the small-scale physics right matters.
-        </p>
-        <a href="reionization-blog.html" class="read-more">Read more →</a>
-    </div>
-</article>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
