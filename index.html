@@ -40,7 +40,8 @@
     section{padding:100px 32px}
     .section-inner{max-width:1100px;margin:0 auto}
     .section-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:600;margin-bottom:8px}
-    .section-title{font-family:'Newsreader',serif;font-size:2.3rem;font-weight:400;margin-bottom:48px;letter-spacing:-.01em}
+    .section-title{font-family:'Newsreader',serif;font-size:2.3rem;font-weight:400;margin-bottom:20px;letter-spacing:-.01em}
+    .section-intro{font-size:1.02rem;color:#57534e;line-height:1.7;max-width:780px;margin-bottom:48px}
     .numbers{background:var(--ink);color:var(--paper);padding:56px 32px}
     .numbers-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
     .num-val{font-family:'Newsreader',serif;font-size:2.6rem;font-weight:400;display:block;color:var(--accent-light)}
@@ -49,10 +50,7 @@
     .r-card{background:white;border-radius:10px;padding:32px;border:1px solid var(--faint);transition:all .25s;position:relative;overflow:hidden}
     .r-card:hover{border-color:var(--accent);box-shadow:0 8px 32px rgba(0,0,0,.06);transform:translateY(-2px)}
     .r-card .tag{display:inline-block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:4px;margin-bottom:14px}
-    .tag-active{background:#dcfce7;color:#166534}
-    .tag-review{background:#fef3c7;color:#92400e}
-    .tag-published{background:#ede9fe;color:#5b21b6}
-    .tag-dev{background:#e0f2fe;color:#075985}
+    .tag-active{background:#dcfce7;color:#166534}.tag-review{background:#fef3c7;color:#92400e}.tag-published{background:#ede9fe;color:#5b21b6}.tag-dev{background:#e0f2fe;color:#075985}
     .r-card h3{font-family:'Newsreader',serif;font-size:1.25rem;font-weight:500;margin-bottom:6px;line-height:1.35}
     .r-card .r-meta{font-size:.82rem;color:var(--muted);margin-bottom:14px}
     .r-card p{font-size:.92rem;color:#57534e;line-height:1.6}
@@ -104,21 +102,27 @@
       <p class="hero-role">PhD student in Astrophysics &middot; University of Washington</p>
       <div class="hero-bio">
         <p>
-          I build computational tools to study how the universe went from a hot, 
-          featureless plasma to the galaxies and cosmic structures we observe today. 
-          Most of my work sits at the intersection of physics simulations, machine 
-          learning, and large astronomical datasets.
+          Modern astronomy is drowning in data — simulations that take months of 
+          supercomputer time, telescopes generating terabytes every night, surveys 
+          with billions of sources. I build the machine learning and computational 
+          tools that make this data tractable: emulators that replace expensive 
+          simulations with millisecond predictions, compression algorithms that 
+          learn what's scientifically important without being told, and neural 
+          networks that control telescope optics in real time.
         </p>
         <p>
-          Right now I'm deploying the first neural network to control telescope 
-          optics in real-time for the Vera Rubin Observatory, developing emulators 
-          that replace months of supercomputer time with millisecond predictions, 
-          and training classifiers to find faint moving objects in the outer solar system.
+          What excites me most is understanding <em>where information lives</em> 
+          in data. I've shown that standard analysis methods leave orders of 
+          magnitude of cosmological information on the table. I've trained 
+          networks that discover which features matter for science without 
+          supervision. I care about representation, compression, and the 
+          question of what makes a measurement informative — whether that 
+          measurement comes from a telescope or a neural network.
         </p>
         <p>
-          Before UW, I studied physics and math at Bryn Mawr College and spent 
-          a summer at Microsoft Research teaching neural networks to identify 
-          mosquito species from wingbeat audio.
+          Before UW, I studied physics and math at Bryn Mawr College and 
+          spent a summer at Microsoft Research teaching neural networks to 
+          identify mosquito species from wingbeat interference in optical sensor.
         </p>
       </div>
       <div class="hero-links">
@@ -149,43 +153,95 @@
   <div class="section-inner">
     <div class="section-label">Research</div>
     <h2 class="section-title">What I'm working on</h2>
+    <p class="section-intro">
+      Both theoretical simulations and observational surveys now produce data that pushes 
+      the limits of traditional analysis. I develop machine learning tools across the 
+      astronomical pipeline — emulators that bypass expensive simulations, compression 
+      algorithms that preserve scientifically relevant structure, and deployed systems 
+      that deliver the optical quality required for precision science.
+    </p>
+
     <div class="research-grid">
       <div class="r-card fade-up">
         <span class="tag tag-active">Deployed on-sky</span>
         <h3>Real-time Neural Optics for the Vera Rubin Observatory</h3>
         <p class="r-meta">with Prof. Andrew Connolly &middot; UW &middot; 2023–present</p>
-        <p>Built and deployed a CNN that estimates wavefront aberrations from out-of-focus donut images, giving Rubin's Active Optics System 30&times; faster inference than the baseline solver. Trained on 256K synthetic images and transfer-learned on 2.1M real observations — now running during on-sky operations.</p>
+        <p>
+          Rubin needs to correct its optics every 36 seconds. I built a CNN that 
+          predicts and corrects gravity- and temperature-induced aberrations from 
+          out-of-focus sensor images, achieving 30&times; faster inference than the 
+          baseline solver. The hardest part was a brutal sim-to-real gap — I solved 
+          it by treating it as a physics-informed learning problem rather than pure 
+          domain adaptation. Now deployed on-sky for LSST.
+        </p>
       </div>
+
       <div class="r-card fade-up">
         <span class="tag tag-active">Active</span>
         <h3>Finding Faint Solar System Objects with Deep Learning</h3>
         <p class="r-meta">with Prof. Andrew Connolly &middot; UW &middot; 2026</p>
-        <p>Retrained the KBMOD moving-target classifier after discovering the original model was cheating via a normalization bug (AUC&nbsp;=&nbsp;1.0 from epoch 1 — always a red flag). New ResNet with squeeze-and-excitation attention achieves AUC&nbsp;=&nbsp;0.997 and recovers 3,318 novel candidates likely to be real TNOs.</p>
+        <p>
+          KBMOD searches for faint moving objects by shifting and stacking images. 
+          The existing classifier failed on faint 5&sigma; candidates — where the 
+          real discoveries live. I diagnosed a data preprocessing bug, redesigned 
+          the model with channel attention so it could learn which coadd methods 
+          matter at different signal-to-noise levels, and recovered thousands of 
+          novel trans-Neptunian object candidates.
+        </p>
       </div>
+
       <div class="r-card fade-up">
         <span class="tag tag-review">Submitted</span>
-        <h3>Emulating Cosmic Reionization with Neural Networks</h3>
+        <h3>Emulating Cosmic Reionization</h3>
         <p class="r-meta">with Prof. Matthew McQuinn &middot; UW &middot; 2024–2026</p>
-        <p>Deep-learning emulator for the ionizing photon mean free path, trained on 126 radiation-hydrodynamic simulations. Achieves 1.6% median error in milliseconds instead of hundreds of CPU-hours. Constrains the reionization midpoint to z&nbsp;=&nbsp;6.8&nbsp;&pm;&nbsp;1.2.</p>
+        <p>
+          Each high-resolution reionization simulation eats ~200,000 CPU-hours. 
+          I trained a neural emulator that takes simulation parameters as input 
+          and directly predicts the ionizing photon mean free path — bypassing 
+          N-body simulations entirely. The emulator runs in milliseconds with 
+          1.6% error across four orders of magnitude, enabling parameter 
+          exploration that would otherwise be computationally intractable.
+        </p>
         <a class="r-link" href="https://arxiv.org/abs/2602.03923" target="_blank">arXiv: 2602.03923 &rarr;</a>
       </div>
+
       <div class="r-card fade-up">
         <span class="tag tag-dev">In development</span>
         <h3>Neural Compression for Survey Astronomy</h3>
         <p class="r-meta">with Prof. Andrew Connolly &middot; UW &middot; 2024–present</p>
-        <p>Adaptive compression that learns which features in astronomical images matter scientifically, achieving 30&times; compression while maintaining 99% detection accuracy. Essential for Rubin's 20&nbsp;TB/night data rate.</p>
+        <p>
+          Rubin will generate 20&nbsp;TB every night for ten years. I'm developing 
+          compression algorithms that learn to identify and preserve scientifically 
+          critical features without supervision — the network discovers what matters 
+          from data statistics alone, achieving 30&times; compression while maintaining 
+          99% detection accuracy for sparse structures.
+        </p>
       </div>
+
       <div class="r-card fade-up">
         <span class="tag tag-dev">In development</span>
         <h3>PeriodicOrbit.jl</h3>
         <p class="r-meta">with Prof. Eric Agol &amp; T. Chatchadanoraset &middot; UW</p>
-        <p>Julia package that finds stable periodic orbits in resonant planetary systems using autodiff and Levenberg-Marquardt optimization. Enforcing periodicity breaks the mass-eccentricity degeneracy in transit timing data. Validated on HR 8799 (stable over 10,000 years).</p>
+        <p>
+          Standard exoplanet methods can't uniquely determine both mass and 
+          eccentricity. I co-developed a Julia package that exploits periodic orbit 
+          theory to break this degeneracy — if a planetary system returns to its 
+          exact initial state, that constrains the physics. Led to a Co-I role on 
+          an accepted JWST Cycle 4 proposal to observe TRAPPIST-1.
+        </p>
       </div>
+
       <div class="r-card fade-up">
         <span class="tag tag-active">Active</span>
         <h3>Baryon Streaming Velocity &amp; Structure Formation</h3>
         <p class="r-meta">with Prof. Matthew McQuinn &middot; UW &middot; 2024–present</p>
-        <p>Implementing baryon streaming physics in MP-Gadget to study how the relative velocity between dark matter and baryons affects halo mass distributions and when the first structures form.</p>
+        <p>
+          The relative velocity between dark matter and baryons after 
+          recombination is a subtle effect from the early universe that turns 
+          out to have big consequences for how and when the first cosmic 
+          structures form. Implementing the physics in MP-Gadget simulations to 
+          quantify the impact on halo mass distributions.
+        </p>
       </div>
     </div>
   </div>
@@ -208,7 +264,7 @@
         <span class="pub-year">2024</span>
         <div>
           <div class="pub-title"><a href="https://arxiv.org/pdf/2310.06010.pdf" target="_blank">Forecast Cosmological Constraints with the 1D Wavelet Scattering Transform and the Lyman-&alpha; Forest</a></div>
-          <div class="pub-venue">Physical Review Letters, Vol. 132, No. 23</div>
+          <div class="pub-venue">Physical Review Letters, Vol. 132, No. 23 &middot; Editors' Suggestion</div>
           <div class="pub-authors"><strong>Tohfa, H.</strong>; Bird, S.; Ho, M.; Qezlou, M.; Fernandez, M.</div>
         </div>
       </li>
