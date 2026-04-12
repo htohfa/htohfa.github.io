@@ -95,7 +95,7 @@
           When LSST begins its 10-year survey, one of the most ambitious scientific instruments 
           ever built will need to maintain optical alignment every 36 seconds as it scans the sky. 
           I developed AIDonut, a CNN-based system that predicts and corrects optical aberrations 
-          in real time — delivering 30&times; faster inference than the existing physics-based solver 
+          in real time delivering 30&times; faster inference than the existing physics-based solver 
           while meeting stringent image quality requirements.
         </p>
         <p>
@@ -105,7 +105,7 @@
           too severe. What worked was treating this as a physics-informed learning problem: I designed 
           a two-stage architecture that learns robust features from 256K synthetic images, then 
           fine-tunes on 2.1M real observations with a loss function that penalizes predictions 
-          outside physically plausible bounds. The system deployed to production in October 2025.
+          outside physically plausible bounds. The system deployed to production in September 2025.
         </p>
       </div>
     </div>
@@ -118,19 +118,17 @@
       <div class="project-meta">University of Washington &middot; Advisor: Prof. Andrew Connolly &middot; 2026</div>
       <div class="project-body">
         <p>
-          KBMOD searches for faint moving objects — distant trans-Neptunian objects — by shifting 
+          KBMOD searches for faint moving objects (distant trans-Neptunian objects) by shifting 
           and stacking images along candidate trajectories. The existing classifier worked well on 
           bright detections but failed on the fainter 5&sigma; candidates where the real discoveries 
-          live. When I investigated, I found the model had never learned any astronomy at all: a 
-          preprocessing mismatch between the two training classes meant a trivial pixel threshold 
-          gave perfect accuracy. The network just learned this shortcut from epoch one.
+          live.  I found the previous model had never learned any astronomy at all rather defaulted to a
+          trivial pixel threshold that gave perfect accuracy on high SNR data. 
         </p>
         <p>
-          After fixing the data pipeline, I designed a ResNet with squeeze-and-excitation attention 
-          that lets the network learn which of the three coadd channels is most informative at 
-          different signal-to-noise levels rather than hardcoding that choice. The new model 
-          identifies thousands of high-confidence novel candidates not in the existing cross-match 
-          catalog, likely real objects the orbital matcher missed.
+          I fixed the data pipeline and designed a ResNet with squeeze-and-excitation attention 
+          that lets the network learn information at different signal-to-noise levels. The new model identifies thousands of
+          high-confidence novel candidates in the existing cross-match catalog and new objects. We are trying
+          to fit orbitals for detecting these new objects.
         </p>
       </div>
     </div>
@@ -144,7 +142,7 @@
       <div class="project-body">
         <p>
           Understanding how the first stars ionized the universe requires simulations that resolve 
-          kiloparsec-scale gas clumping inside hundred-megaparsec cosmic volumes — a computational 
+          kiloparsec-scale gas clumping inside hundred-megaparsec cosmic volumes is a computational 
           problem that's fundamentally intractable at full resolution. I built a deep-learning 
           emulator that takes simulation parameters (redshift, radiation field strength, local 
           density, reionization timing) as input and directly predicts the ionizing photon mean free 
@@ -153,10 +151,10 @@
         <p>
           The emulator achieves 1.6% median error across nearly four orders of magnitude in mean 
           free path and runs in milliseconds on standard hardware. I used it to constrain the 
-          reionization midpoint to z&nbsp;=&nbsp;6.8&nbsp;&pm;&nbsp;1.2 from observed mean free path 
-          data — consistent with Planck CMB measurements but derived from completely independent 
+          reionization midpoint from observed mean free path 
+          data that's consistent with Planck CMB measurements but derived from completely independent 
           observations. The paper also reveals a 2–3&times; decline in ionizing emissivity that 
-          standard power-law models can't explain.
+          standard power-law models of mean free path evolution can't explain.
         </p>
       </div>
       <div class="project-links">
@@ -284,9 +282,9 @@
       <div class="project-body">
         <p>
           Worked on Project Premonition, which tracks disease vectors by analyzing blood collected 
-          by mosquitoes. Built a time-series LSTM to identify mosquito species from wingbeat audio, 
+          by mosquitoes. Built a time-series LSTM to identify mosquito species from wingbeat interference pattern, 
           outperforming the existing baseline. The main challenge was separating species-specific 
-          wingbeat patterns from environmental noise — a signal processing problem that connected 
+          wingbeat patterns from environmental noise which is a signal processing problem that connected 
           nicely to my later work on information extraction.
         </p>
       </div>
