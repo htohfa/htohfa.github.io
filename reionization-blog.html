@@ -1,285 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building Virtual Universes to Understand Reionization - Hurum Tohfa</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
-                        url('img/igm.avif');
-            background-size: cover;
-            background-attachment: fixed;
-            color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            line-height: 1.7;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Building Virtual Universes to Understand Reionization – Hurum Tohfa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a; --paper: #f6f3ed; --accent: #b45309;
+      --muted: #78716c; --faint: #d6d3cd;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif; background: var(--paper);
+      color: var(--ink); font-size: 17px; line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .navbar {
-            background: rgba(0, 0, 0, 0.9) !important;
-            backdrop-filter: blur(10px);
-        }
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100; padding: 18px 0;
+      background: rgba(246,243,237,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--faint);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-name {
+      font-family: 'Newsreader', serif; font-size: 1.15rem; font-weight: 500;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.92rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
 
-        .main-content {
-            margin-top: 80px;
-            padding: 40px 0;
-        }
+    article {
+      max-width: 720px; margin: 0 auto;
+      padding: 140px 32px 80px;
+    }
 
-        .blog-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 0;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border-radius: 16px;
-        }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent); text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; margin-bottom: 40px;
+    }
+    .back-link:hover { text-decoration: underline; }
 
-        .blog-title {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
+    article h1 {
+      font-family: 'Newsreader', serif; font-size: 2.6rem; font-weight: 400;
+      line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .article-meta {
+      font-size: 0.88rem; color: var(--muted); margin-bottom: 48px;
+      padding-bottom: 24px; border-bottom: 1px solid var(--faint);
+    }
 
-        .blog-content {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1.05rem;
-        }
+    article h2 {
+      font-family: 'Newsreader', serif; font-size: 1.5rem; font-weight: 500;
+      margin-top: 48px; margin-bottom: 18px; color: var(--ink);
+    }
 
-        .blog-content h2 {
-            color: #ffd700;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            font-size: 1.6rem;
-            font-weight: 600;
-        }
+    article p {
+      margin-bottom: 20px; color: #3a3733; font-size: 1.02rem;
+    }
 
-        .blog-content p {
-            margin-bottom: 18px;
-            color: #e9ecef;
-        }
+    .callout-box {
+      background: white; border-radius: 10px; padding: 28px 32px;
+      margin: 32px 0; border: 1px solid var(--faint);
+      border-left: 4px solid var(--accent);
+    }
+    .callout-box h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .callout-box p { margin-bottom: 0; font-size: 0.95rem; }
 
-        .computational-highlight {
-            background: linear-gradient(135deg, rgba(40, 167, 69, 0.15), rgba(0, 123, 255, 0.15));
-            border: 2px solid rgba(40, 167, 69, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            position: relative;
-        }
+    .stats {
+      display: flex; justify-content: space-around; margin-top: 20px;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Newsreader', serif; font-size: 2rem; font-weight: 400;
+      color: var(--accent); display: block;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); }
 
-        .computational-highlight::before {
-            content: "💻";
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 1.2rem;
-        }
+    footer {
+      max-width: 720px; margin: 0 auto; padding: 0 32px 48px;
+      border-top: 1px solid var(--faint); padding-top: 32px;
+      text-align: center; color: var(--muted); font-size: 0.88rem;
+    }
+    footer a { color: var(--muted); margin: 0 10px; text-decoration: none; font-size: 1.2rem; }
+    footer a:hover { color: var(--accent); }
 
-        .stats-row {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            margin: 10px;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #28a745;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #adb5bd;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #87ceeb;
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 25px;
-        }
-
-        .back-link:hover {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .blog-title {
-                font-size: 1.8rem;
-            }
-            
-            .blog-content {
-                padding: 25px 20px;
-            }
-
-            .stats-row {
-                flex-direction: column;
-            }
-        }
-    </style>
+    @media (max-width: 700px) {
+      article { padding: 120px 20px 60px; }
+      article h1 { font-size: 2rem; }
+      .stats { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-home mr-2"></i>Hurum Tohfa
-            </a>
-        </div>
-    </nav>
 
-    <div class="container main-content">
-        <a href="blog.html" class="back-link">
-            <i class="fas fa-arrow-left"></i>
-            Back to Blog
-        </a>
-
-        <div class="blog-header">
-            <h1 class="blog-title">Building Virtual Universes to Understand Reionization</h1>
-        </div>
-
-        <div class="blog-content">
-            <p>
-                Running cosmological simulations is expensive. I mean really expensive. Each of the high-resolution simulations I use to study reionization takes about 200,000 CPU hours to complete. That's roughly 23 years if you ran it on a single processor, or about two weeks on a decent supercomputer cluster if you can get 500 cores allocated to your job.
-            </p>
-
-            <p>
-                Now imagine you want to test different scenarios—maybe reionization happened earlier, or the radiation field was stronger, or you're looking at a denser region of the universe. Each parameter combination requires its own simulation. Want to explore just 100 different scenarios? That's 20 million CPU hours, which would cost tens of thousands of dollars on commercial cloud computing.
-            </p>
-
-            <p>
-                This computational bottleneck has limited how we study cosmic reionization, one of the most important transitions in the universe's history. But what if you could get the same accuracy in seconds instead of weeks?
-            </p>
-
-            <h2>The Reionization Problem</h2>
-
-            <p>
-                Cosmic reionization happened when the first stars lit up and their radiation ionized the hydrogen gas that filled the early universe. This wasn't a uniform process—some regions got ionized early while others stayed neutral much longer. Understanding this patchy process is crucial for interpreting observations from our most powerful telescopes.
-            </p>
-
-            <p>
-                The key quantity we need to model is the column density distribution function (CDDF)—basically, how much neutral hydrogen you find at different densities throughout the universe. This determines how opaque the universe is to ionizing radiation, which affects everything from how far light can travel to how quickly reionization progresses.
-            </p>
-
-            <p>
-                Traditional approaches use simple power-law formulas to describe this distribution. But these miss the physics of self-shielding, where dense gas clouds protect themselves from radiation. It's like trying to describe a mountain range with just a straight line—you miss all the interesting peaks and valleys.
-            </p>
-
-            <div class="computational-highlight">
-                <h3 style="color: #28a745; margin-top: 0;">The Computational Breakthrough</h3>
-                <p>
-                    Instead of running hundreds of thousands of CPU hours for each new scenario, my neural network can predict the gas distribution in under a second with 94% accuracy. This represents a speedup of roughly 10^8—that's a hundred million times faster.
-                </p>
-                
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <span class="stat-number">200,000</span>
-                        <span class="stat-label">CPU hours per simulation</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">< 1</span>
-                        <span class="stat-label">second with neural network</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">94%</span>
-                        <span class="stat-label">accuracy maintained</span>
-                    </div>
-                </div>
-            </div>
-
-            <h2>Building a Better Model</h2>
-
-            <p>
-                I started by running 36 high-resolution simulations covering different reionization environments. Each one tracks how radiation affects gas on scales from individual star-forming regions up to cosmic web filaments. The resolution is fine enough to capture photoevaporation of small gas clouds—a process that's crucial for determining the final gas distribution but impossible to resolve in large-scale simulations.
-            </p>
-
-            <p>
-                From these simulations, I developed an improved mathematical description that combines a power law (for the general trend) with a Gaussian bump (for self-shielding systems). Think of it like describing a mountainous landscape: the power law gives you the overall slope, while the Gaussian captures the peaks where dense gas survives.
-            </p>
-
-            <p>
-                The real innovation is how this model depends on environment. The strength and location of the self-shielding bump changes based on when reionization happened locally, how strong the radiation field is, and whether you're in an overdense or underdense region. These dependencies can't be captured by simple, universal formulas.
-            </p>
-
-            <h2>Training Machines to Predict Physics</h2>
-
-            <p>
-                Here's where neural networks become powerful. Instead of trying to derive these environmental dependencies analytically, I let the networks learn them from the simulation data. I built a three-stage system where each network predicts different aspects of the gas distribution:
-            </p>
-
-            <p>
-                The first network learns the basic power-law parameters from environmental conditions like radiation strength and local density. The second network predicts the self-shielding bump properties, using both environmental data and the power-law predictions. The third network fine-tunes the width of the self-shielding feature.
-            </p>
-
-            <p>
-                This sequential approach works much better than trying to predict everything at once. Each stage can focus on learning specific physical relationships without getting confused by the complexity of the full problem.
-            </p>
-
-            <h2>Testing Against Reality</h2>
-
-            <p>
-                The real test is whether this approach can match observations. I used the neural network to predict mean free paths—how far ionizing photons can travel before being absorbed—and compared these to measurements from multiple telescope surveys.
-            </p>
-
-            <p>
-                The results showed that reionization timing matters enormously. Models where reionization finished early (around redshift 8) consistently overpredict how transparent the universe should be. This happens because early reionization gives the universe more time to rebuild dense structures that block radiation.
-            </p>
-
-            <p>
-                Late reionization scenarios, ending around redshift 6, match the observations much better. When I fit the model to data, I get tight constraints: a photoionization rate of 0.32 × 10^-12 s^-1 and reionization completing at redshift 6.4. These values align well with independent estimates from other methods.
-            </p>
-
-            <h2>Beyond Computational Efficiency</h2>
-
-            <p>
-                The speedup from neural networks isn't just about convenience—it enables entirely new types of analysis. Parameter space exploration that would have required years of supercomputer time can now be done interactively. You can test hundreds of reionization scenarios in the time it takes to get coffee.
-            </p>
-
-            <p>
-                This also makes the science more accessible. Other researchers can use the trained networks without needing access to massive computing resources. It democratizes high-resolution reionization modeling in a way that wasn't possible before.
-            </p>
-
-            <p>
-                The approach extends beyond reionization. Any astrophysical problem involving multi-scale physics—galaxy formation, stellar feedback, planet formation—could benefit from this hybrid simulation-machine learning strategy. You run detailed simulations to capture the physics, then use neural networks to interpolate efficiently across parameter space.
-            </p>
-
-            <h2>Looking Forward</h2>
-
-            <p>
-                I'm already working on extensions that account for the extended, patchy nature of reionization instead of assuming it happened instantly everywhere. The neural network framework makes it feasible to incorporate realistic reionization histories and test them against existing as well as upcoming observations.
-            </p>
-
-            <p>
-                Each new dataset gives us better constraints on how reionization actually proceeded. With tools that can rapidly test theoretical predictions against observations, we're moving from rough sketches of reionization to detailed portraits of how the universe transitioned from its dark ages to the light-filled cosmos we see today.
-            </p>
-
-           
-        </div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Hurum Tohfa</a>
+    <div class="nav-links">
+      <a href="research.html">Research</a>
+      <a href="publications.html">Papers</a>
+      <a href="blog.html">Writing</a>
+      <a href="pdf/resume_tohfa_2024.pdf" target="_blank">CV</a>
     </div>
+  </div>
+</nav>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<article>
+  <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Writing</a>
+
+  <h1>Building Virtual Universes to Understand Reionization</h1>
+  <div class="article-meta">January 2025 &middot; 12 min read</div>
+
+  <p>
+    Running cosmological simulations is expensive. I mean really expensive. Each of the 
+    high-resolution simulations I use to study reionization takes about 200,000 CPU hours 
+    to complete. That's roughly 23 years if you ran it on a single processor, or about two 
+    weeks on a decent supercomputer cluster if you can get 500 cores allocated to your job.
+  </p>
+
+  <p>
+    Now imagine you want to test different scenarios — maybe reionization happened earlier, 
+    or the radiation field was stronger, or you're looking at a denser region of the universe. 
+    Each parameter combination requires its own simulation. Want to explore just 100 different 
+    scenarios? That's 20 million CPU hours, which would cost tens of thousands of dollars on 
+    commercial cloud computing.
+  </p>
+
+  <p>
+    This computational bottleneck has limited how we study cosmic reionization, one of the most 
+    important transitions in the universe's history. But what if you could get the same accuracy 
+    in seconds instead of weeks?
+  </p>
+
+  <h2>The Reionization Problem</h2>
+
+  <p>
+    Cosmic reionization happened when the first stars lit up and their radiation ionized the 
+    hydrogen gas that filled the early universe. This wasn't a uniform process — some regions 
+    got ionized early while others stayed neutral much longer. Understanding this patchy process 
+    is crucial for interpreting observations from our most powerful telescopes.
+  </p>
+
+  <p>
+    The key quantity we need to model is the column density distribution function (CDDF) — 
+    basically, how much neutral hydrogen you find at different densities throughout the universe. 
+    This determines how opaque the universe is to ionizing radiation, which affects everything 
+    from how far light can travel to how quickly reionization progresses.
+  </p>
+
+  <p>
+    Traditional approaches use simple power-law formulas to describe this distribution. But 
+    these miss the physics of self-shielding, where dense gas clouds protect themselves from 
+    radiation. It's like trying to describe a mountain range with just a straight line — you 
+    miss all the interesting peaks and valleys.
+  </p>
+
+  <div class="callout-box">
+    <h3>The computational breakthrough</h3>
+    <p>
+      Instead of running hundreds of thousands of CPU hours for each new scenario, my neural 
+      network can predict the gas distribution in under a second with 94% accuracy. This 
+      represents a speedup of roughly 10<sup>8</sup> — a hundred million times faster.
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">200,000</span>
+        <span class="stat-label">CPU hours per simulation</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">&lt; 1s</span>
+        <span class="stat-label">with neural network</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">94%</span>
+        <span class="stat-label">accuracy maintained</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Building a Better Model</h2>
+
+  <p>
+    I started by running 36 high-resolution simulations covering different reionization 
+    environments. Each one tracks how radiation affects gas on scales from individual 
+    star-forming regions up to cosmic web filaments. The resolution is fine enough to capture 
+    photoevaporation of small gas clouds — a process that's crucial for determining the final 
+    gas distribution but impossible to resolve in large-scale simulations.
+  </p>
+
+  <p>
+    From these simulations, I developed an improved mathematical description that combines a 
+    power law (for the general trend) with a Gaussian bump (for self-shielding systems). Think 
+    of it like describing a mountainous landscape: the power law gives you the overall slope, 
+    while the Gaussian captures the peaks where dense gas survives.
+  </p>
+
+  <p>
+    The real innovation is how this model depends on environment. The strength and location of 
+    the self-shielding bump changes based on when reionization happened locally, how strong 
+    the radiation field is, and whether you're in an overdense or underdense region. These 
+    dependencies can't be captured by simple, universal formulas.
+  </p>
+
+  <h2>Training Machines to Predict Physics</h2>
+
+  <p>
+    Here's where neural networks become powerful. Instead of trying to derive these environmental 
+    dependencies analytically, I let the networks learn them from the simulation data. I built a 
+    three-stage system where each network predicts different aspects of the gas distribution.
+  </p>
+
+  <p>
+    The first network learns the basic power-law parameters from environmental conditions like 
+    radiation strength and local density. The second network predicts the self-shielding bump 
+    properties, using both environmental data and the power-law predictions. The third network 
+    fine-tunes the width of the self-shielding feature.
+  </p>
+
+  <p>
+    This sequential approach works much better than trying to predict everything at once. Each 
+    stage can focus on learning specific physical relationships without getting confused by the 
+    complexity of the full problem.
+  </p>
+
+  <h2>Testing Against Reality</h2>
+
+  <p>
+    The real test is whether this approach can match observations. I used the neural network to 
+    predict mean free paths — how far ionizing photons can travel before being absorbed — and 
+    compared these to measurements from multiple telescope surveys.
+  </p>
+
+  <p>
+    The results showed that reionization timing matters enormously. Models where reionization 
+    finished early (around redshift 8) consistently overpredict how transparent the universe 
+    should be. This happens because early reionization gives the universe more time to rebuild 
+    dense structures that block radiation.
+  </p>
+
+  <p>
+    Late reionization scenarios, ending around redshift 6, match the observations much better. 
+    When I fit the model to data, I get tight constraints: a photoionization rate of 
+    0.32 × 10<sup>−12</sup> s<sup>−1</sup> and reionization completing at redshift 6.4. These 
+    values align well with independent estimates from other methods.
+  </p>
+
+  <h2>Beyond Computational Efficiency</h2>
+
+  <p>
+    The speedup from neural networks isn't just about convenience — it enables entirely new 
+    types of analysis. Parameter space exploration that would have required years of supercomputer 
+    time can now be done interactively. You can test hundreds of reionization scenarios in the 
+    time it takes to get coffee.
+  </p>
+
+  <p>
+    This also makes the science more accessible. Other researchers can use the trained networks 
+    without needing access to massive computing resources. It democratizes high-resolution 
+    reionization modeling in a way that wasn't possible before.
+  </p>
+
+  <p>
+    The approach extends beyond reionization. Any astrophysical problem involving multi-scale 
+    physics — galaxy formation, stellar feedback, planet formation — could benefit from this 
+    hybrid simulation-machine learning strategy. You run detailed simulations to capture the 
+    physics, then use neural networks to interpolate efficiently across parameter space.
+  </p>
+
+  <h2>Looking Forward</h2>
+
+  <p>
+    I'm already working on extensions that account for the extended, patchy nature of 
+    reionization instead of assuming it happened instantly everywhere. The neural network 
+    framework makes it feasible to incorporate realistic reionization histories and test them 
+    against upcoming observations from the James Webb Space Telescope.
+  </p>
+
+  <p>
+    Each new dataset gives us better constraints on how reionization actually proceeded. With 
+    tools that can rapidly test theoretical predictions against observations, we're moving from 
+    rough sketches of reionization to detailed portraits of how the universe transitioned from 
+    its dark ages to the light-filled cosmos we see today.
+  </p>
+
+  <p>
+    The paper describing this work is currently under review. Once published, I'll make the 
+    trained neural networks and code publicly available so other researchers can use these 
+    tools in their own studies. After all, science advances fastest when powerful tools are 
+    shared widely.
+  </p>
+</article>
+
+<footer>
+  <div style="margin-bottom: 14px;">
+    <a href="https://github.com/htohfa" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/hurum-maksora-tohfa-96aa02187/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:htohfa@uw.edu"><i class="fas fa-envelope"></i></a>
+  </div>
+  Hurum Maksora Tohfa &middot; University of Washington
+</footer>
+
 </body>
 </html>
