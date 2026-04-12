@@ -22,21 +22,21 @@
     .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--accent);transition:width .25s}
     .nav-links a:hover{color:var(--ink)}
     .nav-links a:hover::after{width:100%}
-    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 32px 80px}
-    .hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 320px;gap:80px;align-items:center}
-    .hero-text h1{font-family:'Newsreader',serif;font-size:3.4rem;font-weight:400;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
-    .hero-role{font-size:1.05rem;color:var(--muted);margin-bottom:32px;font-weight:400}
-    .hero-bio{font-size:1.05rem;line-height:1.75;color:#44403c;max-width:580px}
-    .hero-bio p{margin-bottom:16px}
-    .hero-links{margin-top:28px;display:flex;gap:16px;flex-wrap:wrap}
+    .tohfa{min-height:100vh;display:flex;align-items:center;padding:120px 32px 80px}
+    .tohfa-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 320px;gap:80px;align-items:center}
+    .tohfa-text h1{font-family:'Newsreader',serif;font-size:3.4rem;font-weight:400;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+    .tohfa-role{font-size:1.05rem;color:var(--muted);margin-bottom:32px;font-weight:400}
+    .tohfa-bio{font-size:1.05rem;line-height:1.75;color:#44403c;max-width:580px}
+    .tohfa-bio p{margin-bottom:16px}
+    .tohfa-links{margin-top:28px;display:flex;gap:16px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:6px;font-size:.9rem;font-weight:600;text-decoration:none;transition:all .2s;border:1.5px solid transparent}
     .btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
     .btn-primary:hover{background:#333}
     .btn-outline{background:transparent;color:var(--ink);border-color:var(--faint)}
     .btn-outline:hover{border-color:var(--ink)}
-    .hero-photo{position:relative}
-    .hero-photo img{width:100%;border-radius:10px;filter:grayscale(10%);box-shadow:0 16px 48px rgba(0,0,0,.12)}
-    .hero-photo::after{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:2px solid var(--accent);border-radius:10px;z-index:-1;opacity:.3}
+    .tohfa-photo{position:relative}
+    .tohfa-photo img{width:100%;border-radius:10px;filter:grayscale(10%);box-shadow:0 16px 48px rgba(0,0,0,.12)}
+    .tohfa-photo::after{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:2px solid var(--accent);border-radius:10px;z-index:-1;opacity:.3}
     section{padding:100px 32px}
     .section-inner{max-width:1100px;margin:0 auto}
     .section-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:600;margin-bottom:8px}
@@ -75,8 +75,8 @@
     footer .social{margin-bottom:16px}
     footer .social a{color:var(--muted);font-size:1.3rem;margin:0 12px;transition:color .2s;text-decoration:none}
     footer .social a:hover{color:var(--accent)}
-    @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px}.hero-photo{max-width:280px;order:-1}.hero-text h1{font-size:2.5rem}.research-grid{grid-template-columns:1fr}.numbers-inner{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:600px){.hero-text h1{font-size:2rem}section{padding:64px 20px}.nav-links{gap:18px}.nav-links a{font-size:.82rem}}
+    @media(max-width:900px){.tohfa-inner{grid-template-columns:1fr;gap:40px}.tohfa-photo{max-width:280px;order:-1}.tohfa-text h1{font-size:2.5rem}.research-grid{grid-template-columns:1fr}.numbers-inner{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.tohfa-text h1{font-size:2rem}section{padding:64px 20px}.nav-links{gap:18px}.nav-links a{font-size:.82rem}}
     .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
     .fade-up.visible{opacity:1;transform:translateY(0)}
   </style>
@@ -95,12 +95,12 @@
   </div>
 </nav>
 
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
+<header class="tohfa">
+  <div class="tohfa-inner">
+    <div class="tohfa-text">
       <h1>Hurum Maksora<br>Tohfa</h1>
-      <p class="hero-role">PhD student in Astrophysics &middot; University of Washington</p>
-      <div class="hero-bio">
+      <p class="tohfa-role">PhD student in Astrophysics &middot; University of Washington</p>
+      <div class="tohfa-bio">
         <p>
           Modern astronomy is drowning in data — simulations that take months of 
           supercomputer time, telescopes generating terabytes every night, surveys 
@@ -125,7 +125,7 @@
           identify mosquito species from wingbeat interference in optical sensor.
         </p>
       </div>
-      <div class="hero-links">
+      <div class="tohfa-links">
         <a class="btn btn-primary" href="pdf/resume_tohfa_2024.pdf" target="_blank">
           <i class="fas fa-file-alt"></i> Curriculum Vitae
         </a>
@@ -134,7 +134,7 @@
         </a>
       </div>
     </div>
-    <div class="hero-photo">
+    <div class="tohfa-photo">
       <img src="https://user-images.githubusercontent.com/97810883/206708712-66f84c3f-395c-42a6-80b9-6d98b1667222.jpg" alt="Hurum Tohfa">
     </div>
   </div>
@@ -144,7 +144,6 @@
   <div class="numbers-inner">
     <div><span class="num-val">4</span><span class="num-label">Publications</span></div>
     <div><span class="num-val">167</span><span class="num-label">Citations</span></div>
-    <div><span class="num-val">6</span><span class="num-label">Research Groups</span></div>
     <div><span class="num-val">10<span style="font-size:1.6rem">+</span></span><span class="num-label">Courses TA'd</span></div>
   </div>
 </div>
