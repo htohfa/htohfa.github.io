@@ -1,53 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.03">
-    <title>Publications and Presentations</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css"> <!-- your custom CSS styles -->
-    <style>
-        body {
-            background-image: url('img/IMG_3297.JPEG');
-            background-size: cover;
-            color: white;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Publications – Hurum Tohfa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a; --paper: #f6f3ed; --accent: #b45309;
+      --muted: #78716c; --faint: #d6d3cd;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif; background: var(--paper);
+      color: var(--ink); font-size: 17px; line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100; padding: 18px 0;
+      background: rgba(246,243,237,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--faint);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-name {
+      font-family: 'Newsreader', serif; font-size: 1.15rem; font-weight: 500;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.92rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); border-bottom: 1.5px solid var(--accent); padding-bottom: 2px; }
+
+    .page-header { padding: 140px 32px 60px; max-width: 1100px; margin: 0 auto; }
+    .page-header h1 {
+      font-family: 'Newsreader', serif; font-size: 3rem; font-weight: 400;
+      letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+
+    .content { max-width: 1100px; margin: 0 auto; padding: 0 32px 80px; }
+
+    .section-label {
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--accent); font-weight: 600; margin-bottom: 24px; margin-top: 48px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--faint);
+    }
+    .section-label:first-child { margin-top: 0; }
+
+    .pub {
+      padding: 20px 0; border-bottom: 1px solid var(--faint);
+    }
+    .pub:last-child { border-bottom: none; }
+    .pub-title {
+      font-weight: 600; font-size: 0.97rem; margin-bottom: 5px; line-height: 1.45;
+    }
+    .pub-title a { color: var(--ink); text-decoration: none; }
+    .pub-title a:hover { color: var(--accent); }
+    .pub-authors { font-size: 0.85rem; color: #57534e; margin-bottom: 3px; }
+    .pub-venue { font-size: 0.85rem; color: var(--muted); }
+
+    .talk {
+      padding: 14px 0; border-bottom: 1px solid var(--faint);
+      font-size: 0.93rem; color: #44403c;
+    }
+    .talk:last-child { border-bottom: none; }
+    .talk strong { font-weight: 600; }
+    .talk .talk-venue { color: var(--muted); font-size: 0.85rem; margin-top: 2px; }
+
+    footer {
+      padding: 48px 32px; border-top: 1px solid var(--faint);
+      text-align: center; color: var(--muted); font-size: 0.88rem;
+    }
+    footer a { color: var(--muted); margin: 0 10px; text-decoration: none; font-size: 1.2rem; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 700px) {
+      .page-header { padding: 120px 20px 40px; }
+      .page-header h1 { font-size: 2.2rem; }
+      .content { padding: 0 20px 60px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">Back to Home</a>
-        </nav>
-    </header>
 
-    <main class="container mt-4">
-        <h1>Publications and Presentations</h1>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Hurum Tohfa</a>
+    <div class="nav-links">
+      <a href="research.html">Research</a>
+      <a href="publications.html" class="active">Papers</a>
+      <a href="blog.html">Writing</a>
+      <a href="pdf/resume_tohfa_2024.pdf" target="_blank">CV</a>
+    </div>
+  </div>
+</nav>
 
-        <h2>Publications</h2>
+<div class="page-header">
+  <h1>Publications &amp; Presentations</h1>
+</div>
 
-        <p> <b> Tohfa, H. </b>; Bird, S.; Ho, M.; Qezlou, M.; Farnandez, M. (2023). Physical Review Letters (Vol. 132, No. 23). <a href="https://arxiv.org/pdf/2310.06010.pdf" target="_blank">Forecast Cosmological Constraints with the 1D Wavelet Scattering Transform and the
-Lyman-α forest.</a></p>
+<div class="content">
 
+  <div class="section-label">Journal articles</div>
 
-        <p> <b> Tohfa, H. </b>; Crump, J.; Baker, E.; Hart, L.; Grin, D.; Brosius, M.; Chluba, J. (2023). Physical Review D (Vol. 109, No. 10).  <a href="https://arxiv.org/pdf/2307.06768.pdf" target="_blank">A Cosmic Microwave Background Search for Fine-Structure Constant Evolution.</a></p>
+  <div class="pub">
+    <div class="pub-title">
+      <a href="https://arxiv.org/abs/2602.03923" target="_blank">
+        An emulator for the ionizing photon mean free path in ultra-high resolution simulations: 
+        the implications of mean free path measurements for the reionization history
+      </a>
+    </div>
+    <div class="pub-authors"><strong>Tohfa, H.</strong> et al. (2026)</div>
+    <div class="pub-venue">Submitted &middot; arXiv: 2602.03923</div>
+  </div>
 
-        <p>Jacobson-Galan, W. V., Dessart, L., Margutti, R., and many others, including <b> Tohfa, H.</b> (2023). The
-Astrophysical Journal Letters, 954, L42.  <a href="https://arxiv.org/pdf/2306.04721.pdf" target="_blank">"SN 2023ixf in Messier 101: Photo-ionization of Dense, Close-in Circumstellar Material in a Nearby Type II Supernova”.</a></p>
+  <div class="pub">
+    <div class="pub-title">
+      <a href="https://arxiv.org/pdf/2310.06010.pdf" target="_blank">
+        Forecast Cosmological Constraints with the 1D Wavelet Scattering Transform 
+        and the Lyman-&alpha; Forest
+      </a>
+    </div>
+    <div class="pub-authors"><strong>Tohfa, H.</strong>; Bird, S.; Ho, M.; Qezlou, M.; Fernandez, M. (2023)</div>
+    <div class="pub-venue">Physical Review Letters, Vol. 132, No. 23</div>
+  </div>
 
-        <h2>Presentations</h2>
+  <div class="pub">
+    <div class="pub-title">
+      <a href="https://arxiv.org/pdf/2307.06768.pdf" target="_blank">
+        A Cosmic Microwave Background Search for Fine-Structure Constant Evolution
+      </a>
+    </div>
+    <div class="pub-authors"><strong>Tohfa, H.</strong>; Crump, J.; Baker, E.; Hart, L.; Grin, D.; Brosius, M.; Chluba, J. (2023)</div>
+    <div class="pub-venue">Physical Review D, Vol. 109, No. 10</div>
+  </div>
 
-        <p>Tohfa. Hurum “Fine structure constant variation due to special variation”, Virtual Summer Research Symposium, Haverford College, PA, 2020</p>
-        <p>Tohfa. Hurum Maksora “Fine structure constant variation”, American Physical Society, NY, 2022</p>
-        <p>Tohfa. Hurum Maksora “Fine structure constant variation”, American Astronomical Society, CA, 2022</p>
-        <p>Tohfa. Hurum Maksora “Understanding X-ray Cavities”, MIT Summer Research Symposium, Massachusetts Institute of Technology, MA, 2021</p>
-        <p>Tohfa. Hurum, Pandey.Shiksha, Khan.Faryal, “Computing Lifshitz Field Theory Correlation Functions Using the AdS/CFT Correspondence”, Summer Science Research Symposium, Bryn Mawr College, PA, 2019</p>
-        <p>Tohfa. Hurum, Pandey,Shiksha “Bispectrum Analysis on non-linear system”, Spring Research Symposium, Bryn Mawr College, PA, 2019</p>
+ <div class="pub">
+    <div class="pub-title">
+      <a href="https://arxiv.org/abs/2603.25788" target="_blank">
+        Introducing SAGUARO — Simulating IGM Evolution and Environments 
+        At High Resolution: Setup and First Results
+      </a>
+    </div>
+    <div class="pub-authors">Cain, C. et al. including <strong>Tohfa, H.</strong> (2026)</div>
+    <div class="pub-venue">Submitted to JCAP &middot; arXiv: 2603.25788</div>
+  </div>
 
-    </main>
+  <div class="pub">
+    <div class="pub-title">
+      <a href="https://arxiv.org/pdf/2306.04721.pdf" target="_blank">
+        SN 2023ixf in Messier 101: Photo-ionization of Dense, Close-in 
+        Circumstellar Material in a Nearby Type II Supernova
+      </a>
+    </div>
+    <div class="pub-authors">Jacobson-Galan, W. V. et al. including <strong>Tohfa, H.</strong> (2023)</div>
+    <div class="pub-venue">The Astrophysical Journal Letters, 954, L42</div>
+  </div>
 
-    <!-- Bootstrap JS and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <div class="section-label">Selected presentations</div>
+
+  <div class="talk">
+    <strong>Fine structure constant variation</strong>
+    <div class="talk-venue">American Astronomical Society, CA, 2022</div>
+  </div>
+  <div class="talk">
+    <strong>Fine structure constant variation</strong>
+    <div class="talk-venue">American Physical Society, NY, 2022</div>
+  </div>
+  <div class="talk">
+    <strong>Understanding X-ray Cavities</strong>
+    <div class="talk-venue">MIT Summer Research Symposium, Massachusetts Institute of Technology, 2021</div>
+  </div>
+  <div class="talk">
+    <strong>Fine structure constant variation due to spatial variation</strong>
+    <div class="talk-venue">Virtual Summer Research Symposium, Haverford College, 2020</div>
+  </div>
+  <div class="talk">
+    <strong>Computing Lifshitz Field Theory Correlation Functions Using AdS/CFT</strong>
+    <div class="talk-venue">Summer Science Research Symposium, Bryn Mawr College, 2019 (with S. Pandey, F. Khan)</div>
+  </div>
+  <div class="talk">
+    <strong>Bispectrum Analysis on Non-linear Systems</strong>
+    <div class="talk-venue">Spring Research Symposium, Bryn Mawr College, 2019 (with S. Pandey)</div>
+  </div>
+</div>
+
+<footer>
+  <div style="margin-bottom: 14px;">
+    <a href="https://github.com/htohfa" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/hurum-maksora-tohfa-96aa02187/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:htohfa@uw.edu"><i class="fas fa-envelope"></i></a>
+  </div>
+  Hurum Maksora Tohfa &middot; University of Washington
+</footer>
+
 </body>
 </html>
