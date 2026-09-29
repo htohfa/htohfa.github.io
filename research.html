@@ -175,19 +175,30 @@ clusters across different physical scales.
     <div class="section-label">Completed work</div>
 <div class="project fade-up">
 <div class="project-header">
-<h3>FOTO: Semantic Figure Search for Astronomy</h3>
+<h3>FOTO: Figure-Level Semantic Search for Astronomy</h3>
 <span class="tag tag-review">In review</span>
 </div>
 <div class="project-meta">Flatiron Institute, Center for Computational Astrophysics &middot; Advisor: Dr. Francisco Villaescusa-Navarro &middot; 2026</div>
 <div class="project-body">
 <p>
-Sometimes you remember a figure but not the paper it came from. FOTO retrieves
-scientific figures from text and sketch queries. I built a caption-based index over 482,750
-figures from 53,839 arXiv papers, using dense embeddings (bge-base-en-v1.5), vector
-similarity search, and vision-language model verification. To evaluate it, I designed a
-multi-register benchmark; FOTO outperformed existing literature search baselines across all
-query types.
+Astronomy papers carry much of their content in figures, but literature search indexes
+only text, so there has been no way to find a plot by describing what it shows. FOTO is a
+figure-level search tool over 482,750 captions from 53,839 peer-reviewed astro-ph papers.
+Each figure is indexed once by its title and caption using a 110M-parameter open embedding
+model that runs locally, and a large language model is applied only to the retrieved
+shortlist, where it verifies real figures rather than inventing references to ones that
+don't exist. On a multi-register benchmark, held to the stricter standard of finding the
+exact figure, FOTO places the target in its top 20 for 29–79% of queries, against 6–20% for
+Pathfinder and 8–16% for Semantic Scholar at simply finding the right paper.
 </p>
+<p>
+Sometimes you remember the plot but not the paper it came from. Describe what you
+remember, and FOTO will find the figure so you can cite the right paper.
+</p>
+</div>
+<div class="project-links">
+<a class="p-link" href="https://huggingface.co/spaces/htohfa/foto" target="_blank"><i class="fas fa-search"></i> Try FOTO on Hugging Face</a>
+<a class="p-link" href="https://arxiv.org/abs/2609.30536" target="_blank"><i class="fas fa-file-alt"></i> arXiv: 2609.30536</a>
 </div>
 </div>
 <div class="project fade-up">
