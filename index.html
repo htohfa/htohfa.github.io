@@ -43,11 +43,12 @@
     .section-title{font-family:'Newsreader',serif;font-size:2.3rem;font-weight:400;margin-bottom:20px;letter-spacing:-.01em}
     .section-intro{font-size:1.02rem;color:#57534e;line-height:1.7;max-width:780px;margin-bottom:48px}
     .numbers{background:var(--ink);color:var(--paper);padding:56px 32px}
-    .numbers-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+    .numbers-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
     .num-val{font-family:'Newsreader',serif;font-size:2.6rem;font-weight:400;display:block;color:var(--accent-light)}
     .num-label{font-size:.85rem;color:#a8a29e;margin-top:4px}
     .research-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .r-card{background:white;border-radius:10px;padding:32px;border:1px solid var(--faint);transition:all .25s;position:relative;overflow:hidden}
+    .r-card.featured{grid-column:1/-1}
     .r-card:hover{border-color:var(--accent);box-shadow:0 8px 32px rgba(0,0,0,.06);transform:translateY(-2px)}
     .r-card .tag{display:inline-block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:4px;margin-bottom:14px}
     .tag-active{background:#dcfce7;color:#166534}.tag-review{background:#fef3c7;color:#92400e}.tag-published{background:#ede9fe;color:#5b21b6}.tag-dev{background:#e0f2fe;color:#075985}
@@ -57,6 +58,8 @@
     .r-card .r-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:.85rem;font-weight:600;color:var(--accent);text-decoration:none}
     .r-card .r-link:hover{text-decoration:underline}
     .pub-list{list-style:none}
+    .pub-group{font-family:'Newsreader',serif;font-size:1.3rem;font-weight:500;margin:36px 0 0}
+    .pub-group:first-of-type{margin-top:8px}
     .pub-list li{padding:24px 0;border-bottom:1px solid var(--faint);display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start}
     .pub-year{font-family:'Newsreader',serif;font-size:1.4rem;color:var(--accent);font-weight:400}
     .pub-title{font-weight:600;font-size:.95rem;margin-bottom:4px}
@@ -75,7 +78,7 @@
     footer .social{margin-bottom:16px}
     footer .social a{color:var(--muted);font-size:1.3rem;margin:0 12px;transition:color .2s;text-decoration:none}
     footer .social a:hover{color:var(--accent)}
-    @media(max-width:900px){.tohfa-inner{grid-template-columns:1fr;gap:40px}.tohfa-photo{max-width:280px;order:-1}.tohfa-text h1{font-size:2.5rem}.research-grid{grid-template-columns:1fr}.numbers-inner{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){.tohfa-inner{grid-template-columns:1fr;gap:40px}.tohfa-photo{max-width:280px;order:-1}.tohfa-text h1{font-size:2.5rem}.research-grid{grid-template-columns:1fr}.numbers-inner{gap:16px}.num-val{font-size:2.2rem}}
     @media(max-width:600px){.tohfa-text h1{font-size:2rem}section{padding:64px 20px}.nav-links{gap:18px}.nav-links a{font-size:.82rem}}
     .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
     .fade-up.visible{opacity:1;transform:translateY(0)}
@@ -109,7 +112,7 @@
         </p>
       </div>
       <div class="tohfa-links">
-        <a class="btn btn-primary" href="pdf/resume_tohfa_2024.pdf" target="_blank">
+        <a class="btn btn-primary" href="pdf/resume2026.pdf" target="_blank">
           <i class="fas fa-file-alt"></i> Curriculum Vitae
         </a>
         <a class="btn btn-outline" href="mailto:htohfa@uw.edu">
@@ -125,8 +128,8 @@
 
 <div class="numbers">
   <div class="numbers-inner">
-    <div><span class="num-val">5</span><span class="num-label">Publications</span></div>
-    <div><span class="num-val">174</span><span class="num-label">Citations</span></div>
+    <div><span class="num-val">5</span><span class="num-label">First-author papers</span></div>
+    <div><span class="num-val">9</span><span class="num-label">Total papers</span></div>
     <div><span class="num-val">10<span style="font-size:1.6rem">+</span></span><span class="num-label">Courses TA'd</span></div>
   </div>
 </div>
@@ -144,17 +147,37 @@
     </p>
 
     <div class="research-grid">
-      <div class="r-card fade-up">
-        <span class="tag tag-active">Deployed on-sky</span>
-        <h3>Real-time Neural Optics for the Vera Rubin Observatory</h3>
+      <div class="r-card featured fade-up">
+        <span class="tag tag-active">Tested on-sky in real time</span>
+        <h3>AIDonut: Real-time Neural Optics for the Vera Rubin Observatory</h3>
         <p class="r-meta">with Prof. Andrew Connolly &middot; UW &middot; 2023–present</p>
         <p>
-          Rubin needs to correct its optics every 36 seconds. I built a CNN that 
-          predicts and corrects gravity- and temperature-induced aberrations from 
-          out-of-focus sensor images, achieving 30&times; faster inference than the 
-          baseline solver. The hardest part was a brutal sim-to-real gap — I solved 
-          it by treating it as a physics-informed learning problem rather than pure 
-          domain adaptation. Now deployed on-sky for LSST.
+          Rubin needs to correct its optics every 36 seconds. AIDonut is the first
+          neural network deployed for real-time control of telescope optics, and it now
+          runs in Rubin's Active Optics System. It reads out-of-focus "donut" images
+          and predicts 21 Zernike coefficients plus seeing, cutting inference from
+          30–40 seconds to under one and wavefront error by 20% relative to the
+          forward-modeling baseline. That shortens the correction loop from three
+          visits to two. The hardest part was the sim-to-real gap: adapting a
+          simulation-trained network to 3 million on-sky LSSTCam donut stamps took
+          five transfer-learning strategies and a redesign with per-mode output heads
+          and a bounded GradNorm loss.
+        </p>
+      </div>
+
+      <div class="r-card fade-up">
+        <span class="tag tag-active">Active</span>
+        <h3>A Neural Surrogate for Detector Calibration</h3>
+        <p class="r-meta">with Prof. Andrew Connolly &middot; UW</p>
+        <p>
+          Before an LSSTCam image is usable, raw detector data goes through a chain
+          of nonlinear calibration steps. I built a convolutional surrogate that
+          replaces the whole sequence with a single 282&nbsp;ms evaluation,
+          reproducing fluxes to 0.1% (a linear gain-bias-flat model gets 0.7%) and
+          cutting noise by 59%, which shows it recovers the nonlinear terms in the
+          detector response. Next: full detectors with crosstalk between amplifiers,
+          toward going from raw amplifier data to wavefront correction within the
+          camera readout.
         </p>
       </div>
 
@@ -163,66 +186,23 @@
         <h3>Finding Faint Solar System Objects with Deep Learning</h3>
         <p class="r-meta">with Prof. Andrew Connolly &middot; UW &middot; 2026</p>
         <p>
-          KBMOD searches for faint moving objects by shifting and stacking images. 
-          The existing classifier failed on faint 5&sigma; candidates — where the 
-          real discoveries live. I diagnosed a data preprocessing bug, redesigned 
-          the model with channel attention so it could learn which coadd methods 
-          matter at different signal-to-noise levels, and recovered thousands of 
-          novel trans-Neptunian object candidates.
+          KBMOD searches for faint moving objects by shifting and stacking images.
+          The existing classifier failed on faint 5&sigma; candidates, where the
+          real discoveries live. I diagnosed a data preprocessing bug and
+          redesigned the model as a ResNet with channel attention, trained with
+          focal loss on 2 million samples. It reaches 97% accuracy on held-out data
+          and recovered 3,318 high-confidence candidates that aren't in existing
+          cross-match catalogs, potential new trans-Neptunian objects.
         </p>
       </div>
 
       <div class="r-card fade-up">
-        <span class="tag tag-review">Submitted</span>
-        <h3>Emulating Cosmic Reionization</h3>
-        <p class="r-meta">with Prof. Matthew McQuinn &middot; UW &middot; 2024–2026</p>
+        <span class="tag tag-dev">Just started</span>
+        <h3>A Multi-scale Foundation Model</h3>
+        <p class="r-meta">with Dr. Mike Smith &middot; Center for Astrophysics, Harvard &middot; 2026–present</p>
         <p>
-          Each high-resolution reionization simulation eats ~200,000 CPU-hours. 
-          I trained a neural emulator that takes simulation parameters as input 
-          and directly predicts the ionizing photon mean free path — bypassing 
-          N-body simulations entirely. The emulator runs in milliseconds with 
-          1.6% error across four orders of magnitude, enabling parameter 
-          exploration that would otherwise be computationally intractable.
-        </p>
-        <a class="r-link" href="https://arxiv.org/abs/2602.03923" target="_blank">arXiv: 2602.03923 &rarr;</a>
-      </div>
-
-      <div class="r-card fade-up">
-        <span class="tag tag-dev">In development</span>
-        <h3>Neural Compression for Survey Astronomy</h3>
-        <p class="r-meta">with Prof. Andrew Connolly &middot; UW &middot; 2024–present</p>
-        <p>
-          Rubin will generate 20&nbsp;TB every night for ten years. I'm developing 
-          compression algorithms that learn to identify and preserve scientifically 
-          critical features without supervision — the network discovers what matters 
-          from data statistics alone, achieving 30&times; compression while maintaining 
-          99% detection accuracy for sparse structures.
-        </p>
-      </div>
-
-      <div class="r-card fade-up">
-        <span class="tag tag-dev">In development</span>
-        <h3>PeriodicOrbit.jl</h3>
-        <p class="r-meta">with Prof. Eric Agol &amp; T. Chatchadanoraset &middot; UW</p>
-        <p>
-          Standard exoplanet methods can't uniquely determine both mass and 
-          eccentricity. I co-developed a Julia package that exploits periodic orbit 
-          theory to break this degeneracy — if a planetary system returns to its 
-          exact initial state, that constrains the physics. Led to a Co-I role on 
-          an accepted JWST Cycle 4 proposal to observe TRAPPIST-1.
-        </p>
-      </div>
-
-      <div class="r-card fade-up">
-        <span class="tag tag-active">Active</span>
-        <h3>Baryon Streaming Velocity &amp; Structure Formation</h3>
-        <p class="r-meta">with Prof. Matthew McQuinn &middot; UW &middot; 2024–present</p>
-        <p>
-          The relative velocity between dark matter and baryons after 
-          recombination is a subtle effect from the early universe that turns 
-          out to have big consequences for how and when the first cosmic 
-          structures form. Implementing the physics in MP-Gadget simulations to 
-          quantify the impact on halo mass distributions.
+          A new project building a foundation model around how information
+          clusters across different physical scales.
         </p>
       </div>
     </div>
@@ -236,12 +216,29 @@
   <div class="section-inner">
     <div class="section-label">Publications</div>
     <h2 class="section-title">Papers</h2>
+    <h3 class="pub-group">First author</h3>
     <ul class="pub-list">
       <li class="fade-up">
         <span class="pub-year">2026</span>
         <div>
-          <div class="pub-title"><a href="https://arxiv.org/abs/2602.03923" target="_blank">An emulator for the ionizing photon mean free path: implications for the reionization history</a></div>
-          <div class="pub-venue">Submitted &middot; arXiv: 2602.03923</div>
+          <div class="pub-title"><a href="https://arxiv.org/abs/2609.30536" target="_blank">FOTO: Figure-Level Semantic Search for Astronomy</a></div>
+          <div class="pub-venue">In review &middot; arXiv: 2609.30536 &middot; <a href="https://huggingface.co/spaces/htohfa/foto" target="_blank" style="color:inherit">Live demo</a></div>
+          <div class="pub-authors"><strong>Tohfa, H.</strong>; Villaescusa-Navarro, F.</div>
+        </div>
+      </li>
+      <li class="fade-up">
+        <span class="pub-year">2026</span>
+        <div>
+          <div class="pub-title">Neural compression for cosmological datasets</div>
+          <div class="pub-venue">In review</div>
+          <div class="pub-authors"><strong>Tohfa, H.</strong> et al.</div>
+        </div>
+      </li>
+      <li class="fade-up">
+        <span class="pub-year">2026</span>
+        <div>
+          <div class="pub-title"><a href="https://doi.org/10.1088/1475-7516/2026/06/094" target="_blank">An emulator for the ionizing photon mean free path in ultra-high resolution simulations: the implications of mean free path measurements for the reionization history</a></div>
+          <div class="pub-venue">Journal of Cosmology and Astroparticle Physics, JCAP06(2026)094 &middot; <a href="https://arxiv.org/abs/2602.03923" target="_blank" style="color:inherit">arXiv: 2602.03923</a></div>
           <div class="pub-authors"><strong>Tohfa, H.</strong>; Cain, C.; McQuinn, M.; D'Aloisio, A.</div>
         </div>
       </li>
@@ -249,7 +246,7 @@
         <span class="pub-year">2024</span>
         <div>
           <div class="pub-title"><a href="https://arxiv.org/pdf/2310.06010.pdf" target="_blank">Forecast Cosmological Constraints with the 1D Wavelet Scattering Transform and the Lyman-&alpha; Forest</a></div>
-          <div class="pub-venue">Physical Review Letters, Vol. 132, No. 23 &middot; Editors' Suggestion</div>
+          <div class="pub-venue">Physical Review Letters, Vol. 132, No. 23</div>
           <div class="pub-authors"><strong>Tohfa, H.</strong>; Bird, S.; Ho, M.; Qezlou, M.; Fernandez, M.</div>
         </div>
       </li>
@@ -261,11 +258,30 @@
           <div class="pub-authors"><strong>Tohfa, H.</strong>; Crump, J.; Baker, E.; Hart, L.; Grin, D.; Brosius, M.; Chluba, J.</div>
         </div>
       </li>
+    </ul>
+    <h3 class="pub-group">Co-authored</h3>
+    <ul class="pub-list">
+      <li class="fade-up">
+        <span class="pub-year">2026</span>
+        <div>
+          <div class="pub-title">Breaking the Exoplanet Mass-Eccentricity Degeneracy: Combining Periodic Orbit Constraints with Transit Timing Variations</div>
+          <div class="pub-venue">In review</div>
+          <div class="pub-authors">Chatchadanoraset, J.; <strong>Tohfa, H.</strong> et al.</div>
+        </div>
+      </li>
+      <li class="fade-up">
+        <span class="pub-year">2026</span>
+        <div>
+          <div class="pub-title"><a href="https://arxiv.org/abs/2606.19449" target="_blank">A self-consistent analytical model for both the photoionization rate and reionization history</a></div>
+          <div class="pub-venue">Submitted to JCAP &middot; arXiv: 2606.19449</div>
+          <div class="pub-authors">Cain, C. et al. including <strong>Tohfa, H.</strong></div>
+        </div>
+      </li>
       <li class="fade-up">
         <span class="pub-year">2026</span>
         <div>
           <div class="pub-title"><a href="https://arxiv.org/abs/2603.25788" target="_blank">Introducing SAGUARO — Simulating IGM Evolution and Environments At High Resolution: Setup and First Results</a></div>
-          <div class="pub-venue">Submitted to JCAP &middot; arXiv: 2603.25788</div>
+          <div class="pub-venue">Accepted to JCAP &middot; arXiv: 2603.25788</div>
           <div class="pub-authors">Cain, C. et al. including <strong>Tohfa, H.</strong></div>
         </div>
       </li>
