@@ -54,7 +54,7 @@
       <a href="index.html#research" class="active">Research</a>
       <a href="index.html#publications">Papers</a>
       <a href="index.html#blog">Writing</a>
-      <a href="pdf/resume_tohfa_2024.pdf" target="_blank">CV</a>
+      <a href="pdf/resume2026.pdf" target="_blank">CV</a>
     </div>
   </div>
 </nav>
@@ -83,150 +83,196 @@
 <div class="section">
   <div class="section-inner">
     <div class="section-label">Current projects</div>
-
-    <div class="project fade-up">
-      <div class="project-header">
-        <h3>Real-time Neural Optics for the Vera Rubin Observatory</h3>
-        <span class="tag tag-active">Deployed on-sky</span>
-      </div>
-      <div class="project-meta">University of Washington &middot; Advisor: Prof. Andrew Connolly &middot; 2023–present</div>
-      <div class="project-body">
-        <p>
-          When LSST begins its 10-year survey, one of the most ambitious scientific instruments 
-          ever built will need to maintain optical alignment every 36 seconds as it scans the sky. 
-          I developed AIDonut, a CNN-based system that predicts and corrects optical aberrations 
-          in real time delivering 30&times; faster inference than the existing physics-based solver 
-          while meeting stringent image quality requirements.
-        </p>
-        <p>
-          The core challenge was sim-to-real transfer: training data came from perfect physics 
-          simulations, but real telescopes are messy — atmospheric turbulence, mechanical vibrations, 
-          thermal deformations. Standard domain adaptation failed because the distribution shift was 
-          too severe. What worked was treating this as a physics-informed learning problem: I designed 
-          a two-stage architecture that learns robust features from 256K synthetic images, then 
-          fine-tunes on 2.1M real observations with a loss function that penalizes predictions 
-          outside physically plausible bounds. The system deployed to production in September 2025.
-        </p>
-      </div>
-    </div>
-
-    <div class="project fade-up">
-      <div class="project-header">
-        <h3>KBMOD Moving Target Classifier</h3>
-        <span class="tag tag-active">Active</span>
-      </div>
-      <div class="project-meta">University of Washington &middot; Advisor: Prof. Andrew Connolly &middot; 2026</div>
-      <div class="project-body">
-        <p>
-          KBMOD searches for faint moving objects (distant trans-Neptunian objects) by shifting 
-          and stacking images along candidate trajectories. The existing classifier worked well on 
-          bright detections but failed on the fainter 5&sigma; candidates where the real discoveries 
-          live.  I found the previous model had never learned any astronomy at all rather defaulted to a
-          trivial pixel threshold that gave perfect accuracy on high SNR data. 
-        </p>
-        <p>
-          I fixed the data pipeline and designed a ResNet with squeeze-and-excitation attention 
-          that lets the network learn information at different signal-to-noise levels. The new model identifies thousands of
-          high-confidence novel candidates in the existing cross-match catalog and new objects. We are trying
-          to fit orbitals for detecting these new objects.
-        </p>
-      </div>
-    </div>
-
-    <div class="project fade-up">
-      <div class="project-header">
-        <h3>Emulating Cosmic Reionization</h3>
-        <span class="tag tag-review">Submitted</span>
-      </div>
-      <div class="project-meta">University of Washington &middot; Advisor: Prof. Matthew McQuinn &middot; 2024–2026</div>
-      <div class="project-body">
-        <p>
-          Understanding how the first stars ionized the universe requires simulations that resolve 
-          kiloparsec-scale gas clumping inside hundred-megaparsec cosmic volumes is a computational 
-          problem that's fundamentally intractable at full resolution. I built a deep-learning 
-          emulator that takes simulation parameters (redshift, radiation field strength, local 
-          density, reionization timing) as input and directly predicts the ionizing photon mean free 
-          path, bypassing the need for individual N-body simulations entirely.
-        </p>
-        <p>
-          The emulator achieves 1.6% median error across nearly four orders of magnitude in mean 
-          free path and runs in milliseconds on standard hardware. I used it to constrain the 
-          reionization midpoint from observed mean free path 
-          data that's consistent with Planck CMB measurements but derived from completely independent 
-          observations. The paper also reveals a 2–3&times; decline in ionizing emissivity that 
-          standard power-law models of mean free path evolution can't explain.
-        </p>
-      </div>
-      <div class="project-links">
-        <a class="p-link" href="https://arxiv.org/abs/2602.03923" target="_blank"><i class="fas fa-file-alt"></i> arXiv: 2602.03923</a>
-      </div>
-    </div>
-
-    <div class="project fade-up">
-      <div class="project-header">
-        <h3>Neural Compression for Survey Astronomy</h3>
-        <span class="tag tag-dev">In development</span>
-      </div>
-      <div class="project-meta">University of Washington &middot; Advisor: Prof. Andrew Connolly &middot; 2024–present</div>
-      <div class="project-body">
-        <p>
-          Rubin will generate about 20 TB of data every night for ten years. Lossless compression 
-          barely helps on simulation data (~3&times;). I'm developing adaptive algorithms that 
-          learn to identify and preserve scientifically critical features without supervision — 
-          the network discovers importance patterns from data statistics alone, allocating bits 
-          non-uniformly across features. It turns out cosmological structure lives on a 
-          low-dimensional manifold in data space, even though no one told the network what 
-          to look for.
-        </p>
-      </div>
-    </div>
-
-    <div class="project fade-up">
-      <div class="project-header">
-        <h3>PeriodicOrbit.jl: Stable Orbits in Multi-Planet Systems</h3>
-        <span class="tag tag-dev">In development</span>
-      </div>
-      <div class="project-meta">University of Washington &middot; Advisor: Prof. Eric Agol &middot; with Tanawan Chatchadanoraset</div>
-      <div class="project-body">
-        <p>
-          Standard exoplanet detection methods can't uniquely determine both mass and orbital 
-          eccentricity — you get a family of degenerate solutions. Periodic orbits, configurations 
-          where a planetary system returns to its exact initial state, exist at discrete points in 
-          parameter space and break this degeneracy. I co-developed a Julia package that uses 
-          automatic differentiation to find these solutions, validated it on HR 8799 (stable over 
-          10,000 years), and applied it to TRAPPIST-1 — leading to a Co-I role on an accepted 
-          JWST Cycle 4 proposal to confirm a candidate planet.
-        </p>
-      </div>
-    </div>
-
-    <div class="project fade-up">
-      <div class="project-header">
-        <h3>Baryon Streaming Velocity Effects</h3>
-        <span class="tag tag-active">Active</span>
-      </div>
-      <div class="project-meta">University of Washington &middot; Advisor: Prof. Matthew McQuinn &middot; 2024–present</div>
-      <div class="project-body">
-        <p>
-          The relative velocity between dark matter and baryons after recombination is a subtle 
-          effect from the early universe that turns out to have significant consequences for halo 
-          mass functions and the timing of first structure formation. Implementing the physics in 
-          the MP-Gadget simulation framework to quantify the impact on high-redshift predictions.
-        </p>
-      </div>
-    </div>
-  </div>
+<div class="project fade-up">
+<div class="project-header">
+<h3>AIDonut: Real-time Neural Optics for the Vera Rubin Observatory</h3>
+<span class="tag tag-active">Tested on-sky in real time</span>
 </div>
-
+<div class="project-meta">University of Washington &middot; Advisor: Prof. Andrew Connolly &middot; 2023–present</div>
+<div class="project-body">
+<p>
+When LSST begins its 10-year survey, one of the most ambitious scientific instruments
+ever built will need to maintain optical alignment every 36 seconds as it scans the sky.
+I developed AIDonut, the first neural network deployed for real-time control of telescope
+optics, now running in the Rubin Active Optics System. From out-of-focus "donut" images it
+predicts 21 Zernike coefficients plus seeing, reducing wavefront estimation error by 20%
+relative to the forward-modeling baseline solver and cutting inference from 30–40 seconds
+to under one. That meets the 36-second visit cadence and shortens the correction latency
+from three visits to two.
+</p>
+<p>
+The core challenge was sim-to-real transfer: the network was trained on physics
+simulations, but real telescopes are messy — atmospheric turbulence, mechanical vibrations,
+thermal deformations. Adapting it to on-sky LSSTCam data across 3 million donut stamps, I
+tested five transfer-learning strategies and redesigned the network with per-mode output
+heads and a bounded GradNorm loss. The system deployed to production in September 2025.
+</p>
+</div>
+</div>
+<div class="project fade-up">
+<div class="project-header">
+<h3>A Neural Surrogate for Instrument Signature Removal</h3>
+<span class="tag tag-active">Active</span>
+</div>
+<div class="project-meta">University of Washington &middot; Advisor: Prof. Andrew Connolly</div>
+<div class="project-body">
+<p>
+Before an LSSTCam image can be used for science, the raw detector data passes through a
+nonlinear sequence of calibration steps. I built a convolutional surrogate that replaces the
+whole sequence with a single 282&nbsp;ms evaluation. It reproduces fluxes to 0.1%, against
+0.7% for a linear gain-bias-flat model, and reduces noise by 59% compared to a linear model,
+evidence that it recovers the nonlinear terms in the detector response.
+</p>
+<p>
+I'm now extending it to full-detector scale, including crosstalk between amplifiers. The
+goal is an end-to-end path from raw amplifier data to wavefront correction, fast enough to
+run within the camera readout.
+</p>
+</div>
+</div>
+<div class="project fade-up">
+<div class="project-header">
+<h3>KBMOD Moving Target Classifier</h3>
+<span class="tag tag-active">Active</span>
+</div>
+<div class="project-meta">University of Washington &middot; Advisor: Prof. Andrew Connolly &middot; 2026</div>
+<div class="project-body">
+<p>
+KBMOD searches for faint moving objects (distant trans-Neptunian objects) by shifting
+and stacking images along candidate trajectories. The existing classifier worked well on
+bright detections but failed on the fainter 5&sigma; candidates where the real discoveries
+live. I found the previous model had never learned any astronomy at all; it had defaulted to
+a trivial pixel threshold that gave perfect accuracy on high-SNR data.
+</p>
+<p>
+I fixed the data pipeline and designed a ResNet with squeeze-and-excitation channel
+attention, trained with focal loss on 2 million samples, so the network can learn which
+information matters at different signal-to-noise levels. It reaches 97% detection accuracy
+on a held-out test set and recovered 3,318 novel high-confidence candidates that aren't in
+existing cross-match catalogs, potential new trans-Neptunian objects. We are now fitting
+orbits to confirm them.
+</p>
+</div>
+</div>
+<div class="project fade-up">
+<div class="project-header">
+<h3>A Multi-scale Foundation Model</h3>
+<span class="tag tag-dev">Just started</span>
+</div>
+<div class="project-meta">Center for Astrophysics, Harvard &middot; Collaborator: Dr. Mike Smith &middot; 2026–present</div>
+<div class="project-body">
+<p>
+A new project developing a multi-scale foundation model built around how information
+clusters across different physical scales.
+</p>
+</div>
+</div>
+</div>
+</div>
 <!-- COMPLETED -->
 <div class="section" style="background:white;padding-top:80px;padding-bottom:80px;">
   <div class="section-inner">
     <div class="section-label">Completed work</div>
+<div class="project fade-up">
+<div class="project-header">
+<h3>FOTO: Semantic Figure Search for Astronomy</h3>
+<span class="tag tag-review">In review</span>
+</div>
+<div class="project-meta">Flatiron Institute, Center for Computational Astrophysics &middot; Advisor: Dr. Francisco Villaescusa-Navarro &middot; 2026</div>
+<div class="project-body">
+<p>
+Sometimes you remember a figure but not the paper it came from. FOTO retrieves
+scientific figures from text and sketch queries. I built a caption-based index over 482,750
+figures from 53,839 arXiv papers, using dense embeddings (bge-base-en-v1.5), vector
+similarity search, and vision-language model verification. To evaluate it, I designed a
+multi-register benchmark; FOTO outperformed existing literature search baselines across all
+query types.
+</p>
+</div>
+</div>
+<div class="project fade-up">
+<div class="project-header">
+<h3>Neural Compression for Cosmological Datasets</h3>
+<span class="tag tag-review">In review</span>
+</div>
+<div class="project-meta">University of Washington &middot; Advisor: Prof. Matthew McQuinn &middot; 2024–2026</div>
+<div class="project-body">
+<p>
+Cosmological simulations produce more data than we can afford to keep at full
+precision. I developed a lossy neural compression method that quantizes each field on a
+fixed grid, so the reconstruction error is set by the science tolerance rather than by
+training, and learns only the bin probabilities with a two-scale autoregressive
+transformer.
+</p>
+<p>
+Benchmarked on weak lensing maps, an N-body density field, and Lagrangian
+displacements, it reaches percent-level accuracy at 1.3–5.3 bits per pixel (versus 32
+stored) while preserving the power spectrum to better than 1%. It achieved the lowest rate
+on every field tested, 9–27% below a Gaussian coder and 6–21% below SZ3. That gap is a
+measurement in itself: it's the structure that two-point statistics and local smoothness
+can't represent.
+</p>
+</div>
+</div>
+<div class="project fade-up">
+<div class="project-header">
+<h3>PeriodicOrbit.jl: Stable Orbits in Multi-Planet Systems</h3>
+<span class="tag tag-review">In review</span>
+</div>
+<div class="project-meta">University of Washington &middot; Advisor: Prof. Eric Agol &middot; with Tanawan Chatchadanoraset</div>
+<div class="project-body">
+<p>
+Standard exoplanet detection methods can't uniquely determine both mass and orbital
+eccentricity — you get a family of degenerate solutions. Periodic orbits, configurations
+where a planetary system returns to its exact initial state, exist at discrete points in
+parameter space and break this degeneracy. I co-developed a Julia package that combines
+periodic orbit constraints with transit timing variations, using a Levenberg-Marquardt
+optimizer with Jacobians computed by automatic differentiation that converges in hundreds of
+iterations. We validated it by reproducing HR 8799's 4-planet periodic orbit (stable over
+10,000 years), then applied it to TRAPPIST-1, where it found evidence for a previously
+undetected planet.
+</p>
+<p>
+That result led to an accepted JWST Cycle 4 program (#12492), on which I'm a Co-I, to
+confirm the candidate planet with follow-up observations.
+</p>
+</div>
+</div>
+<div class="project fade-up">
+<div class="project-header">
+<h3>Emulating Cosmic Reionization</h3>
+<span class="tag tag-published">JCAP</span>
+</div>
+<div class="project-meta">University of Washington &middot; Advisor: Prof. Matthew McQuinn &middot; 2024–2026</div>
+<div class="project-body">
+<p>
+Understanding how the first stars ionized the universe requires simulations that resolve
+kiloparsec-scale gas clumping inside hundred-megaparsec cosmic volumes, a computational
+problem that's fundamentally intractable at full resolution. I built a deep-learning
+emulator, a residual multi-layer perceptron trained on 2&nbsp;kpc-resolution
+radiation-hydrodynamic simulations spanning 126 parameter combinations. It takes simulation
+parameters (redshift, radiation field strength, local density, reionization timing) as input
+and directly predicts the ionizing photon mean free path, with no new simulation needed.
+</p>
+<p>
+The emulator achieves 1.6% median error across nearly four orders of magnitude in mean
+free path and runs in milliseconds on standard hardware. I used it to constrain the
+reionization history from observed mean free path measurements at z&nbsp;=&nbsp;5–6, which is
+consistent with Planck CMB measurements but derived from completely independent
+observations. The paper also reveals a 2–3&times; decline in ionizing emissivity that
+standard power-law models of mean free path evolution can't explain.
+</p>
+</div>
+<div class="project-links">
+<a class="p-link" href="https://doi.org/10.1088/1475-7516/2026/06/094" target="_blank"><i class="fas fa-file-alt"></i> Paper (JCAP)</a>
+<a class="p-link" href="https://arxiv.org/abs/2602.03923" target="_blank"><i class="fas fa-file-alt"></i> arXiv: 2602.03923</a>
+</div>
+</div>
 
     <div class="project fade-up">
       <div class="project-header">
         <h3>Wavelet Analysis of the Lyman-&alpha; Forest</h3>
-        <span class="tag tag-published">Physical Review Letters &middot; Editors' Suggestion</span>
+        <span class="tag tag-published">Physical Review Letters</span>
       </div>
       <div class="project-meta">UC Riverside &middot; Advisor: Prof. Simeon Bird &middot; 2022–2023</div>
       <div class="project-body">
